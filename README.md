@@ -1,24 +1,36 @@
-# README
+# You will be...? DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|password|string|null: false|
+|week_time|float|null: false|
+|image|string|-|
+|public_flag|integer|null: false|
+|goal_id|integer|null: false, foreign_key|
 
-Things you may want to cover:
+### Association
+- belongs_to :goals
+- has_many :times
 
-* Ruby version
+## timesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|time|float|null: false|
+|user_id|integer|null: false, foreign_key|
+|goal_id|integer|null: false, foreign_key|
 
-* System dependencies
+### Association
+- belongs_to :goals
+- belongs_to :users
 
-* Configuration
+## goalsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|time|integer|null: false|
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- has_many :goals
+- has_many :users
