@@ -25,7 +25,7 @@
 - belongs_to :goals
 - belongs_to :users
 
-## Goalsテーブル
+## goalsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
