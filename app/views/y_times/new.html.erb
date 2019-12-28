@@ -1,0 +1,7 @@
+<h1>You will be</h1>
+<p>あなたの普段の生活を教えてください</p>
+
+<%= form_for @time do |form| %>
+  <%= form.text_field :time, placeholder: "placeholder" %>
+  <%= form.submit "SEND" %>
+<% end %>
