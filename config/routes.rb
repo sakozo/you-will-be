@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'times/index'
+  # get 'times/index'
 
   root "goals#index"
   resources :goals
