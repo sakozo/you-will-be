@@ -1,0 +1,2 @@
+class YTime < ApplicationRecord
+end
