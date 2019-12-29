@@ -1,6 +1,7 @@
 <h1>You will be</h1>
-<p>◯◯週間で△△になれるかもしれません</p>
+<p><%= @user.name %>さん、あなたは◯◯週間で△△になれるかもしれません</p>
+<p>1週間で<%=@user.week_time%>時間</p>
 
-<%= @user.name %>
+
 
 <%= link_to "はじめる" , user_path(current_user.id) %>

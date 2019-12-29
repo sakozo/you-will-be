@@ -4,15 +4,22 @@ class YTimesController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def new
-    @time = YTime.new()
+  def edit
+    @user = User.find(current_user.id)
   end
 
-  def create
-    redirect_to user_index_path
+  def update
+    user = User.find(current_user.id)
+    user.update(y_time_params)
+    redirect_to y_times_path
   end
 
   def show
     
+  end
+
+  private
+  def y_time_params
+    params.require(:user).permit(:time)
   end
 end
