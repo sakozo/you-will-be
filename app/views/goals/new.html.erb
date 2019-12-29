@@ -1,4 +1,8 @@
 <h1>You will be</h1>
 <p>あなたがなりたいものを選んでください</p>
 
+<% @goals.each do |goal| %>
+  <div><%=goal.name%>: <%=goal.time%>時間</div><br>
+<% end %>
+<br>
 <%= link_to "目標" , edit_y_time_path(current_user.id) %>

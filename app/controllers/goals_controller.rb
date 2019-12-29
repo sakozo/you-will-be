@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
   end
 
   def new
-    @time = YTime.new()
+    @goals = Goal.all
+    #binding.pry
   end
 end
