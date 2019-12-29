@@ -14,7 +14,7 @@
 - belongs_to :goals
 - has_many :times
 
-## timesテーブル
+## y_timesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |time|float|null: false|
