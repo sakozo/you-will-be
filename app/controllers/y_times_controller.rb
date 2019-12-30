@@ -9,9 +9,7 @@ class YTimesController < ApplicationController
   end
 
   def update
-    user = User.find(current_user.id)
-    user.update(y_time_params)
-    redirect_to y_times_path
+
   end
 
   def show
@@ -19,7 +17,5 @@ class YTimesController < ApplicationController
   end
 
   private
-  def y_time_params
-    params.require(:user).permit(:time)
-  end
+
 end
