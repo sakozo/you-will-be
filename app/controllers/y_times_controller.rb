@@ -1,8 +1,8 @@
 class YTimesController < ApplicationController
 
   def index
-    @user = User.find(current_user.id)
-    @goal = Goal.find(current_user.goal_id)
+    @user = User.find(current_user.id)        #ユーザー情報
+    @goal = Goal.find(current_user.goal_id)   #ユーザーのgoal_idをみて目標を出力
     #binding.pry
   end
 

@@ -3,6 +3,7 @@
 <p>じつは思っているよりも早くなれるかもしれません、、、</p>
 
 <% if user_signed_in? %>
-<%= link_to "はじめるshow" , goal_path(current_user.id) %>
+  <%= link_to "はじめるshow" , goal_path(current_user.id) %>
+<% else %>
+  <%= link_to "はじめる(ユーザー登録)" , new_user_session_path %>
 <% end %>
-<%= link_to "はじめる(ユーザー登録)" , new_user_session_path %>
