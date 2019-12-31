@@ -3,6 +3,9 @@ class YTimesController < ApplicationController
   def index
     @user = User.find(current_user.id)        #ユーザー情報
     @goal = Goal.find(current_user.goal_id)   #ユーザーのgoal_idをみて目標を出力
+    
+    @required_week = (@goal.time / @user.week_time).round
+    @required_month = (@required_week / 4).round
     #binding.pry
   end
 
