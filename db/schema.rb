@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191229054236) do
+ActiveRecord::Schema.define(version: 20191231104945) do
 
   create_table "goals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 20191229054236) do
   end
 
   create_table "y_times", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float   "time",    limit: 24, null: false
-    t.integer "user_id",            null: false
-    t.integer "goal_id",            null: false
+    t.float    "time",       limit: 24, null: false
+    t.integer  "user_id",               null: false
+    t.integer  "goal_id",               null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["goal_id"], name: "index_y_times_on_goal_id", using: :btree
     t.index ["user_id"], name: "index_y_times_on_user_id", using: :btree
   end

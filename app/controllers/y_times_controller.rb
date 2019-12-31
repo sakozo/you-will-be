@@ -20,7 +20,7 @@ class YTimesController < ApplicationController
 
   def create
     y_time = YTime.create(y_time_params)
-    #binding.pry
+    redirect_to user_path(current_user.id)
   end
 
   private
