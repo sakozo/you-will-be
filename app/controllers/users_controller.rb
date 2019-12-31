@@ -21,12 +21,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @goal = Goal.find(current_user.goal_id)
-    @date = (Date.current - @user.created_at.to_date).numerator
+    @date = (Date.current - @user.created_at.to_date + 1).numerator #何日め表記なので現在美-登録日+1
     
-    @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5)
+    @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5) #進捗率、小数点5桁まで表示すれば数値が変化しないということはないという考え
     #binding.pry
 
-    @y_time = YTime.new() #入力フォーム用
+    @y_time = YTime.new() #積み上げ時間入力フォーム用
   end
 
   def new

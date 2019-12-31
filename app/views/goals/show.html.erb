@@ -1,15 +1,14 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <p>あなたがなりたいものを選んでください</p>
 
+<% @goals.each do |goal| %>
+  <div><p><%=goal.name%>: <%=goal.time%>時間  <br><%= image_tag goal.image, :size =>'150x150' %></p></div>
+<% end %>
+
 <%= form_for @user do |f| %>
 <%= f.collection_radio_buttons :goal_id, Goal.all, :id, :name %>
 <%= f.submit "SEND" %>
 <% end %>
-<% @goals.each do |goal| %>
-  <div><%=goal.name%>: <%=goal.time%>時間  <br><%= image_tag goal.image, :size =>'150x150' %></div><br>
-<% end %>
-
 
 <br>
 <%= link_to "目標を自分で設定する" , new_goal_path %>
-<%= link_to "目標" , edit_y_time_path(current_user.id) %>

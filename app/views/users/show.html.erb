@@ -1,7 +1,7 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
 <%= @user.name%>さん、こんばんわ
-<p>本日は<%= @goal.name %>になるために向けてとりくみ始めてから<%= @date %>日目ですね</p>
+<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
 
 進捗率は<h2><%= @progress_rate %>%</h2>
 
