@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goal = Goal.find(current_user.goal_id)
     @date = (Date.current - @user.created_at.to_date).numerator
+    
+    @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(2)
     #binding.pry
 
     @y_time = YTime.new() #入力フォーム用

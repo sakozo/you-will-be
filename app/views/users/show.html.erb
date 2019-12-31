@@ -1,12 +1,18 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <%= @user.name%>さん、こんばんわ
-<p>本日は<%= @goal.name %>に向けてとりくみ始めてから<%= @date %>日目ですね</p>
+<p>本日は<%= @goal.name %>になるために向けてとりくみ始めてから<%= @date %>日目ですね</p>
 
-<p>進捗率◯◯%</p>
+<h2>進捗率<%= @progress_rate %>%</h2>
 
 <%= form_for @y_time do |form| %>
-  <%= form.text_field :time, placeholder: "前回から積み上げた時間を入力してください" %>
+  <%= form.text_field :time, placeholder: "3.5" %>時間
   <%= form.submit "SEND" %>
 <% end %>
 
+<br>   <!--バリデーションをあとで設定する-->
+これまでの積み上げ時間<br>
+<% @user.y_times.each do |y_time| %>
+  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%Y/%m/%d') %><br>
+<% end %>
+<br>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
