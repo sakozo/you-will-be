@@ -18,6 +18,15 @@ class YTimesController < ApplicationController
     
   end
 
+  def create
+    y_time = YTime.create(y_time_params)
+    #binding.pry
+  end
+
   private
+
+  def y_time_params
+    params.require(:y_time).permit(:time).merge(user_id: current_user.id, goal_id: current_user.goal_id)
+  end
 
 end

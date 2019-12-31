@@ -20,6 +20,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @goal = Goal.find(current_user.goal_id)
+    @date = (Date.current - @user.created_at.to_date).numerator
+    #binding.pry
+
+    @y_time = YTime.new() #入力フォーム用
+  end
+
+  def new
+    
   end
 
   private

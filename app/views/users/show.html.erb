@@ -1,8 +1,12 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
-<p>◯日目</p>
+<%= @user.name%>さん、こんばんわ
+<p>本日は<%= @goal.name %>に向けてとりくみ始めてから<%= @date %>日目ですね</p>
 
 <p>進捗率◯◯%</p>
 
-
+<%= form_for @y_time do |form| %>
+  <%= form.text_field :time, placeholder: "前回から積み上げた時間を入力してください" %>
+  <%= form.submit "SEND" %>
+<% end %>
 
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

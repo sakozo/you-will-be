@@ -11,7 +11,7 @@
 |goal_id|integer|null: false, foreign_key|
 
 ### Association
-- belongs_to :goals
+- belongs_to :goal
 - has_many :times
 
 ## y_timesテーブル
@@ -22,8 +22,8 @@
 |goal_id|integer|null: false, foreign_key|
 
 ### Association
-- belongs_to :goals
-- belongs_to :users
+- belongs_to :goal
+- belongs_to :user
 
 ## goalsテーブル
 |Column|Type|Options|
