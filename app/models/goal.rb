@@ -1,4 +1,4 @@
 class Goal < ApplicationRecord
-  has_many :goals
+  has_many :y_times
   has_many :users
 end

@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #belongs_to :goal
-  has_many :times
+  has_many :y_times
 end
