@@ -1,7 +1,9 @@
 class YTimesController < ApplicationController
 
   def index
-    @user = User.find(current_user.id)
+    @user = User.find(current_user.id)        #ユーザー情報
+    @goal = Goal.find(current_user.goal_id)   #ユーザーのgoal_idをみて目標を出力
+    #binding.pry
   end
 
   def edit
@@ -9,9 +11,7 @@ class YTimesController < ApplicationController
   end
 
   def update
-    user = User.find(current_user.id)
-    user.update(y_time_params)
-    redirect_to y_times_path
+
   end
 
   def show
@@ -19,7 +19,5 @@ class YTimesController < ApplicationController
   end
 
   private
-  def y_time_params
-    params.require(:user).permit(:time)
-  end
+
 end

@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #belongs_to :goals
+  #belongs_to :goal
   has_many :times
 end
