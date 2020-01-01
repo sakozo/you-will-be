@@ -4,16 +4,17 @@
 <p>週休２日を想定しています。通勤時間も学習時間として換算します</p>
 
 <section id = "week_time_form">
-<%= javascript_pack_tag "week_time" %>
+
 <%= form_for @user do |form| %>
   <%= form.text_field :week_time, placeholder: "placeholder", "v-model": "message" %>
   <%= form.submit "SEND" %>
 <% end %>
 
 
-<div id='hello'>
+<div id='week_time'>
   {{message}}
-  <app></app>
 </div>
 
 </section>
+
+<%= javascript_pack_tag "week_time" %>
