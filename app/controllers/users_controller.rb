@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5) #進捗率、小数点5桁まで表示すれば数値が変化しないということはないという考え
     #binding.pry
 
+    @nowTime = DateTime.now.hour
+
     @y_time = YTime.new() #積み上げ時間入力フォーム用
   end
 
