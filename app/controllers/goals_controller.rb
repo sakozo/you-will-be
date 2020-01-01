@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
 
   def create
     Goal.create(goal_params)
-    redirect_to edit_y_time_path(current_user.id)
+    redirect_to goal_path(current_user.id)
   end
 
   def edit

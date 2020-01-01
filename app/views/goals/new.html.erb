@@ -3,10 +3,9 @@
 
 
 <%= form_for @goal do |form| %>
-  <%= form.text_field :name, placeholder: "placeholder" %>
-  <%= form.text_field :time, placeholder: "時間" %>
-  <%= form.text_field :image, placeholder: "画像" %>
+  <%= form.text_field :name, placeholder: "なりたいもの" %>
+  <%= form.text_field :time, placeholder: "かかる時間" %>
+  <%= form.text_field :image, placeholder: "イメージ画像" %>
   <%= form.submit "SEND" %>
 <% end %>
 <br>
-<%= link_to "目標" , edit_y_time_path(current_user.id) %>

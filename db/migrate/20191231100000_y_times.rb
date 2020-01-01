@@ -1,4 +1,4 @@
-class CreateYTimes < ActiveRecord::Migration[5.0]
+class YTimes < ActiveRecord::Migration[5.0]
   def change
     create_table :y_times do |t|
       t.float :time, null: false

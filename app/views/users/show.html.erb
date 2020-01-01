@@ -1,8 +1,45 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
-<p>◯日目</p>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
+<%= @user.name%>さん、
 
-<p>進捗率◯◯%</p>
+<!--挨拶、時間ごとに変化-->
+<% if @nowTime >= 4 && @nowTime < 10 %>
+  <p>おはようございます</p>
+<% elsif @nowTime >= 10 && @nowTime < 6 %>
+  <p>こんにちは</p>
+<% elsif @nowTime >= 6 && @nowTime < 4 %>
+  <p>こんばんわ</p>
+<% end %>
+<!--挨拶ここまで-->
+
+<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
+
+進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
 
 
+<!--メッセージ、進捗率ごとに変化-->
+<% if @progress_rate >= 0 && @progress_rate < 10 %>
+  <p>スタートダッシュ!!</p>
+<% elsif @progress_rate >= 10 && @progress_rate < 50 %>
+  <p>少しづつ目標が見えてきましたか？</p>
+<% elsif @progress_rate >= 50 && @progress_rate < 100 %>
+  <p>そろそろなりたい姿に近づいてきたのではないでしょうか?</p>
+<% elsif @progress_rate > 100 %>
+  <p>なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう</p>
+<% end %>
+<!--メッセージここまで-->
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<br>
+積み上げた時間を記録しましょう
+<%= form_for @y_time do |form| %>
+  <%= form.text_field :time, placeholder: "3.5" %>時間<br>
+  <%= form.text_field :note, placeholder: "メモ" %>
+  <%= form.submit "SEND" %>
+<% end %>
+
+<br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
+これまでに積み上げてきた時間 <%= @total_time %>時間<br>
+<% @user.y_times.each do |y_time| %>
+  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %>  :<%= y_time.note %><br>
+<% end %>
+<br>
