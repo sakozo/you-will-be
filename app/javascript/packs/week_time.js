@@ -39,9 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '#week_time_form',
     data: {
-      message: ""
+      time1: "",
+      time2: "",
+      time3: ""
     },
-    components: { App }
+    computed: {
+      week_time: function () {
+        if (this.time1 && this.time2 && this.time3 ) {
+          var week_time =
+          24*7 - (7*(this.time1) + 5*(this.time2) + 7*(this.time3));
+          return week_time;
+        }else{
+          return "";
+        }
+      }
+    }
   })
 })
 //

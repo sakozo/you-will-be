@@ -1,20 +1,22 @@
 <h1>You will be</h1>
 <p>あなたの普段の生活を教えてください</p>
+<p>もし目標に向けてフルコミットできた場合、何週間でなりたい姿になれるかを計算します。</p>
 
-<p>週休２日を想定しています。通勤時間も学習時間として換算します</p>
+<p>週休２日を想定しています。通勤時間など全て積み上げ時間として換算します。</p>
 
 <section id = "week_time_form">
 
+睡眠時間<input v-model="time1" placeholder="7.5"><br>
+仕事・学校時間<input v-model="time2" placeholder="8.5"><br>
+食事・家事時間<input v-model="time3" placeholder="2"><br><br>
+
+1週間のあなたの時間
 <%= form_for @user do |form| %>
-  <%= form.text_field :week_time, placeholder: "placeholder", "v-model": "message" %>
+  <%= form.text_field :week_time, placeholder: "placeholder", "v-model": "week_time" %>
   <%= form.submit "SEND" %>
 <% end %>
 
-
-<div id='week_time'>
-  {{message}}
-</div>
-
 </section>
+
 
 <%= javascript_pack_tag "week_time" %>
