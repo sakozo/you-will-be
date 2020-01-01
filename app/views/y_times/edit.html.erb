@@ -1,6 +1,8 @@
 <h1>You will be</h1>
 <p>あなたの普段の生活を教えてください</p>
 
+<p>週休２日を想定しています。通勤時間も学習時間として換算しています</p>
+
 <%= form_for @user do |form| %>
   <%= form.text_field :week_time, placeholder: "placeholder" %>
   <%= form.submit "SEND" %>
