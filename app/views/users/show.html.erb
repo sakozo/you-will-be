@@ -3,20 +3,21 @@
 <%= @user.name%>さん、こんばんわ
 <p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
 
-進捗率は<h2><%= @progress_rate %>%</h2>
+進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
 
 <p>そろそろなりたい姿に近づいてきたのではないでしょうか?</p>
 
 <br>
 積み上げた時間を記録しましょう
 <%= form_for @y_time do |form| %>
-  <%= form.text_field :time, placeholder: "3.5" %>時間
+  <%= form.text_field :time, placeholder: "3.5" %>時間<br>
+  <%= form.text_field :note, placeholder: "メモ" %>
   <%= form.submit "SEND" %>
 <% end %>
 
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
 これまでに積み上げてきた時間<br>
 <% @user.y_times.each do |y_time| %>
-  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %><br>
+  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %><%= y_time.note %><br>
 <% end %>
 <br>

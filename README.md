@@ -24,6 +24,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |time|float|null: false|
+|note|string|-|
 |user_id|integer|null: false, foreign_key|
 |goal_id|integer|null: false, foreign_key|
 

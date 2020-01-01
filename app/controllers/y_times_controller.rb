@@ -29,7 +29,7 @@ class YTimesController < ApplicationController
   private
 
   def y_time_params
-    params.require(:y_time).permit(:time).merge(user_id: current_user.id, goal_id: current_user.goal_id)
+    params.require(:y_time).permit(:time,:note).merge(user_id: current_user.id, goal_id: current_user.goal_id)
   end
 
 end
