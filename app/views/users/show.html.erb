@@ -2,7 +2,7 @@
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
 <%= @user.name%>さん、
 
-<!--挨拶時間ごとに変化-->
+<!--挨拶、時間ごとに変化-->
 <% if @nowTime >= 4 && @nowTime < 10 %>
   <p>おはようございます</p>
 <% elsif @nowTime >= 10 && @nowTime < 6 %>
@@ -16,7 +16,18 @@
 
 進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
 
-<p>そろそろなりたい姿に近づいてきたのではないでしょうか?</p>
+
+<!--メッセージ、進捗率ごとに変化-->
+<% if @progress_rate >= 0 && @progress_rate < 10 %>
+  <p>スタートダッシュ!!</p>
+<% elsif @progress_rate >= 10 && @progress_rate < 50 %>
+  <p>少しづつ目標が見えてきましたか？</p>
+<% elsif @progress_rate >= 50 && @progress_rate < 100 %>
+  <p>そろそろなりたい姿に近づいてきたのではないでしょうか?</p>
+<% elsif @progress_rate > 100 %>
+  <p>なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう</p>
+<% end %>
+<!--メッセージここまで-->
 
 <br>
 積み上げた時間を記録しましょう
@@ -27,8 +38,8 @@
 <% end %>
 
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
-これまでに積み上げてきた時間<br>
+これまでに積み上げてきた時間 <%= @total_time %>時間<br>
 <% @user.y_times.each do |y_time| %>
-  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %><%= y_time.note %><br>
+  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %>  :<%= y_time.note %><br>
 <% end %>
 <br>

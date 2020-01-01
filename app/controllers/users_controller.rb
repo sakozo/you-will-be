@@ -23,10 +23,11 @@ class UsersController < ApplicationController
     @goal = Goal.find(current_user.goal_id)
     @date = (Date.current - @user.created_at.to_date + 1).numerator #何日め表記なので現在美-登録日+1
     
+    @total_time = @user.y_times.sum(:time)
     @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5) #進捗率、小数点5桁まで表示すれば数値が変化しないということはないという考え
     #binding.pry
 
-    @nowTime = DateTime.now.hour
+    @nowTime = DateTime.now.hour  #挨拶表示のため、現在時刻を取得
 
     @y_time = YTime.new() #積み上げ時間入力フォーム用
   end
