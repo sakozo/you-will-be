@@ -8,7 +8,7 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: ""
     }
   }
 }
@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 p {
-  font-size: 2em;
-  text-align: center;
+  /* font-size: 10px; */
+  text-align: left;
 }
 </style>
