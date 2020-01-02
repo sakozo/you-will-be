@@ -7,7 +7,8 @@ class YTimesController < ApplicationController
     @required_week = (@goal.time / @user.week_time).round
     @required_month = (@required_week / 4).round
 
-
+    @achievement_date = (Date.current + (7 * @required_week)).strftime("%Y年%-m月%-d日")
+    # @date = (Date.current - @user.created_at.to_date + 1).numerator 
     #binding.pry
   end
 
