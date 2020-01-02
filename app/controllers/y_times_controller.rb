@@ -6,6 +6,8 @@ class YTimesController < ApplicationController
     
     @required_week = (@goal.time / @user.week_time).round
     @required_month = (@required_week / 4).round
+
+
     #binding.pry
   end
 
