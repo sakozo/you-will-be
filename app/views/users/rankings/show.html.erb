@@ -1,0 +1,7 @@
+<a href=http://localhost:3000><h1>You will be</h1></a>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
+<%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち<br>
+
+<% @all_users.each.with_index(1) do |(user, total_time), index| %>
+  <%= index %>位 <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  <%= user.name %>さん <%= link_to "詳細", user_path(user.id) %><br>
+<% end %>
