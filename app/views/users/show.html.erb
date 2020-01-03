@@ -1,5 +1,6 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
+<%= link_to "ランキングページへ", users_rankings_path %><br>
 <%= @user.name%>さん、
 
 <!--挨拶、時間ごとに変化-->
