@@ -1,3 +1,7 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
-<%= @user.name%>さん、
+<%= @user.name%>さんと同じ目標を目指しているひとたち<br>
+
+<% @same_goal_users.each do |user, total_time| %>
+  <%= total_time %>時間  <%= user.name %>さん<br>
+<% end %>
