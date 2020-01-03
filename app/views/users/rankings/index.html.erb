@@ -1,0 +1,8 @@
+<a href=http://localhost:3000><h1>You will be</h1></a>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
+<%= link_to "全体ランキング", users_ranking_path(current_user.id)%><br>
+<%= @user.name%>さんと同じく<%= @goal.name %>を目指しているひとたち<br>
+
+<% @same_goal_users.each.with_index(1) do |(user, total_time), index| %>
+  <%= index %>位 <%= total_time %>時間  <%= user.name %>さん <%= link_to "みてみる", user_path(user.id) %><br>
+<% end %>

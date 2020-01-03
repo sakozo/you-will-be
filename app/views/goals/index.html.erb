@@ -14,7 +14,7 @@
 <% if user_signed_in? %>
   <%= link_to "はじめる" , goal_path(current_user.id) %>
 <% else %>
-  <%= link_to "ユーザー登録" , new_user_session_path %>
+  <%= link_to "ログイン・ユーザー登録" , new_user_session_path %>
 <% end %>
 
 <br><br>
