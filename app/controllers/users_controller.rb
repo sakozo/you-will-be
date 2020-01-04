@@ -71,11 +71,9 @@ class UsersController < ApplicationController
         end
       end
 
-    #入力日毎の時間
-    @column_data = []
-      for i in 0..@data.length-1 do
-        @column_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
-      end
+    #入力日毎（日毎に合計値を算出）の時間
+    @column_data = @pie_data
+
     #統計データここまで################################################################
   end
 
