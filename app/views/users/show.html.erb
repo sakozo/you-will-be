@@ -42,6 +42,33 @@
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
 これまでに積み上げてきた時間 <%= @total_time %>時間<br>
 <% @user.y_times.each do |y_time| %>
-  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %>  :<%= y_time.note %><br>
+  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
+  <%if y_time.note.present? %>
+    <%= ": #{y_time.note}" %>
+  <% end %>
+  <br>
 <% end %>
 <br>
+
+<div class = "daily_statistics" >
+入力日ごとの時間
+<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" , colors: ["#b00", "#666"] %>
+
+入力日ごとの時間（円グラフ）
+<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" , colors: ["#b00", "#666"] %>
+<br>
+
+曜日ごとの積み上げ時間（0:日曜、1:月曜、、、）
+<%= scatter_chart @sca_data,  width: "250px", height: "250px" , suffix: "h" , colors: ["#b00", "#666"] %>
+<br>
+
+進捗率
+<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %>
+<br>
+
+積み上げた時間
+<%= area_chart @daily_total_data,width: "250px", height: "250px", suffix: "h", curve: false  %>
+<br>
+
+
+</div>
