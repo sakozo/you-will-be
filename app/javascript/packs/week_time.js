@@ -44,15 +44,46 @@ document.addEventListener('DOMContentLoaded', () => {
       time3: ""
     },
     computed: {
+      input_week_time: function () {
+        if (this.time1 && this.time2 && this.time3 ) {
+          var input_week_time =
+          24*7 - (7*(this.time1) + 5*(this.time2) + 7*(this.time3));
+          return input_week_time ;
+        }else{
+          return "";
+        }
+      },
+
       week_time: function () {
         if (this.time1 && this.time2 && this.time3 ) {
           var week_time =
           24*7 - (7*(this.time1) + 5*(this.time2) + 7*(this.time3));
-          return week_time;
+          return "1週間で" + week_time + "時間です";
+        }else{
+          return "";
+        }
+      },
+
+      week_day_time: function () {
+        if (this.time1 && this.time2 && this.time3 ) {
+          var week_day_time =
+          24 - (Number(this.time1) + Number(this.time2) + Number(this.time3));
+          return "平日は1日" + week_day_time + "時間";
+        }else{
+          return "";
+        }
+      },
+
+      week_end_time: function () {
+        if (this.time1 && this.time2 && this.time3 ) {
+          var week_end_time =
+          24 - (Number(this.time1) + Number(this.time3));
+          return "休日は1日" + week_end_time + "時間";
         }else{
           return "";
         }
       }
+
     }
   })
 })
