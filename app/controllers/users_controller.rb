@@ -30,6 +30,38 @@ class UsersController < ApplicationController
     @nowTime = DateTime.now.hour  #挨拶表示のため、現在時刻を取得
 
     @y_time = YTime.new() #積み上げ時間入力フォーム用
+
+    #@data = [['2019-06-01', 100], ['2019-06-02', 200], ['2019-06-03', 150]]
+    @data = User.find(params[:id]).y_times.pluck(:created_at, :time)
+
+    #統計データここから
+    #日ごと
+    @daily_total_data = [[@user.created_at.strftime('%y/%m/%d'),0.0]]
+      for i in 0..@data.length-1 do
+        if i == 0
+          @daily_total_data << [@data[0][0].strftime('%y/%m/%d'),@data[0][1]]
+        else
+          @daily_total_data << [@data[i][0].strftime('%y/%m/%d'),@daily_total_data.last[1] + @data[i][1]]
+        end
+      end
+  
+    @daily_total_data_pie = [[@user.created_at.strftime('%m/%d'),0.0]]
+    for i in 0..@data.length-1 do
+      if i == 0
+        @daily_total_data_pie << [@data[0][0].strftime('%m/%d'),@data[0][1]]
+      else
+        @daily_total_data_pie << [@data[i][0].strftime('%m/%d'),@daily_total_data_pie.last[1] + @data[i][1]]
+      end
+    end
+
+    @daily_total_data_sca = [[@user.created_at.strftime('%d'),0.0]]
+    for i in 0..@data.length-1 do
+      if i == 0
+        @daily_total_data_sca << [@data[0][0].strftime('%d'),@data[0][1]]
+      else
+        @daily_total_data_sca << [@data[i][0].strftime('%d'),@daily_total_data_sca.last[1] + @data[i][1]]
+      end
+    end
   end
 
   def new
