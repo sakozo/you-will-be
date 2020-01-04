@@ -50,23 +50,31 @@ class UsersController < ApplicationController
         @daily_progress_data << [@daily_total_data[i][0], ((@daily_total_data[i][1]) / (@goal.time) * 100).round(5) ]
       end
   
-    @daily_data_pie = [[@user.created_at.strftime('%m/%d'),0.0]]
-    for i in 0..@data.length-1 do
-      if i == 0
-        @daily_total_data_pie << [@data[0][0].strftime('%m/%d'),@data[0][1]]
-      else
-        @daily_total_data_pie << [@data[i][0].strftime('%m/%d'),@daily_total_data_pie.last[1] + @data[i][1]]
-      end
-    end
-
     @daily_total_data_sca = [[@user.created_at.strftime('%d'),0.0]]
-    for i in 0..@data.length-1 do
-      if i == 0
-        @daily_total_data_sca << [@data[0][0].strftime('%d'),@data[0][1]]
-      else
-        @daily_total_data_sca << [@data[i][0].strftime('%d'),@daily_total_data_sca.last[1] + @data[i][1]]
+      for i in 0..@data.length-1 do
+        if i == 0
+          @daily_total_data_sca << [@data[0][0].strftime('%d'),@data[0][1]]
+        else
+          @daily_total_data_sca << [@data[i][0].strftime('%d'),@daily_total_data_sca.last[1] + @data[i][1]]
+        end
       end
-    end
+    
+    @pie_data = [[@data[0][0].strftime('%y/%m/%d'),@data[0][1]]]
+    #binding.pry
+      for i in 1..@data.length-1 do
+        if @pie_data.last[0] == @data[i][0].strftime('%y/%m/%d')
+          @pie_data[@pie_data.size-1] = [@pie_data[@pie_data.size-1][0] , @pie_data[@pie_data.size-1][1] + @data[i][1] ]
+        else
+          @pie_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
+        end
+      end
+   # binding.pry
+
+    @column_data = []
+      for i in 0..@data.length-1 do
+        @column_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
+      end
+    #binding.pry
   end
 
   def new

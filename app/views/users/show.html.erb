@@ -52,6 +52,6 @@
 <%= line_chart @daily_progress_data, width: "250px", height: "250px", xtitle: "日付", ytitle: "進捗率" , suffix: "%" %>
 <%= area_chart @daily_total_data,width: "250px", height: "250px", xtitle: "日付", ytitle: "積み上げ時間"  %>
 <%= scatter_chart @daily_total_data_sca,  width: "250px", height: "250px" , xtitle: "日", ytitle: "積み上げ時間", suffix: "h"%>
-<%= pie_chart @data,width: "250px", height: "250px" , legend: false %>
-<%= column_chart @data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" %>
+<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false %>
+<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" %>
 <div>
