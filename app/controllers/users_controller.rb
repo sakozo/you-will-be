@@ -61,6 +61,7 @@ class UsersController < ApplicationController
         end
       end
     #入力日毎（日毎に合計値を算出）の時間
+    if @data.length > 0
     @pie_data = [[@data[0][0].strftime('%y/%m/%d'),@data[0][1]]]
       for i in 1..@data.length-1 do
         if @pie_data.last[0] == @data[i][0].strftime('%y/%m/%d')
@@ -69,6 +70,7 @@ class UsersController < ApplicationController
           @pie_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
         end
       end
+    end
 
     #入力日毎（日毎に合計値を算出）の時間
     @column_data = @pie_data
