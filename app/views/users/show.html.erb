@@ -46,12 +46,25 @@
 <% end %>
 <br>
 
-<%= javascript_include_tag '//code.highcharts.com/highcharts.js', 'chartkick' %>
 <div class = "daily_statistics" >
+入力日ごとの時間
+<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" , colors: ["#b00", "#666"] %>
 
-<%= line_chart @daily_progress_data, width: "250px", height: "250px", xtitle: "日付", ytitle: "進捗率" , suffix: "%" %>
-<%= area_chart @daily_total_data,width: "250px", height: "250px", xtitle: "日付", ytitle: "積み上げ時間"  %>
-<%= scatter_chart @daily_total_data_sca,  width: "250px", height: "250px" , xtitle: "日", ytitle: "積み上げ時間", suffix: "h"%>
-<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false %>
-<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" %>
-<div>
+入力日ごとの時間（円グラフ）
+<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" , colors: ["#b00", "#666"] %>
+<br>
+
+曜日ごとの積み上げ時間（0:日曜、1:月曜、、、）
+<%= scatter_chart @sca_data,  width: "250px", height: "250px" , suffix: "h" , colors: ["#b00", "#666"] %>
+<br>
+
+進捗率
+<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %>
+<br>
+
+積み上げた時間
+<%= area_chart @daily_total_data,width: "250px", height: "250px", suffix: "h", curve: false  %>
+<br>
+
+
+</div>

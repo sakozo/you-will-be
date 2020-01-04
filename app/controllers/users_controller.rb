@@ -51,16 +51,15 @@ class UsersController < ApplicationController
         @daily_progress_data << [@daily_total_data[i][0], ((@daily_total_data[i][1]) / (@goal.time) * 100).round(5) ]
       end
   
-    #入力日毎のスタック時間
-    @daily_total_data_sca = [[@user.created_at.strftime('%d'),0.0]]
+    #曜日毎のスタック時間
+    @sca_data = [[@user.created_at.strftime('%w'),0.0]]
       for i in 0..@data.length-1 do
         if i == 0
-          @daily_total_data_sca << [@data[0][0].strftime('%d'),@data[0][1]]
+          @sca_data << [@data[0][0].strftime('%w'),@data[0][1]]
         else
-          @daily_total_data_sca << [@data[i][0].strftime('%d'),@daily_total_data_sca.last[1] + @data[i][1]]
+          @sca_data << [@data[i][0].strftime('%w'),@sca_data.last[1] + @data[i][1]]
         end
       end
-    
     #入力日毎（日毎に合計値を算出）の時間
     @pie_data = [[@data[0][0].strftime('%y/%m/%d'),@data[0][1]]]
       for i in 1..@data.length-1 do
@@ -73,7 +72,6 @@ class UsersController < ApplicationController
 
     #入力日毎（日毎に合計値を算出）の時間
     @column_data = @pie_data
-
     #統計データここまで################################################################
   end
 
