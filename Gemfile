@@ -57,3 +57,4 @@ gem 'pry-rails'
 gem 'webpacker', github: 'rails/webpacker'
 
 gem "chartkick"
+gem 'highcharts-rails'

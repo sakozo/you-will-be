@@ -46,7 +46,9 @@
 <% end %>
 <br>
 
+<%= javascript_include_tag '//code.highcharts.com/highcharts.js', 'chartkick' %>
 <div class = "daily_statistics" >
+
 <%= line_chart @daily_progress_data, width: "250px", height: "250px", xtitle: "日付", ytitle: "進捗率" , suffix: "%" %>
 <%= area_chart @daily_total_data,width: "250px", height: "250px", xtitle: "日付", ytitle: "積み上げ時間"  %>
 <%= scatter_chart @daily_total_data_sca,  width: "250px", height: "250px" , xtitle: "日", ytitle: "積み上げ時間", suffix: "h"%>
