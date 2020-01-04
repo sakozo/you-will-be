@@ -63,7 +63,7 @@ class UsersController < ApplicationController
     #binding.pry
       for i in 1..@data.length-1 do
         if @pie_data.last[0] == @data[i][0].strftime('%y/%m/%d')
-          @pie_data[@pie_data.size-1] = [@pie_data[@pie_data.size-1][0] , @pie_data[@pie_data.size-1][1] + @data[i][1] ]
+          @pie_data[@pie_data.size-1] = [@pie_data.last[0] , @pie_data.last[1] + @data[i][1] ]
         else
           @pie_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
         end
