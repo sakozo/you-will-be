@@ -2,7 +2,7 @@
 <p>あなたがなりたいものを選んでください</p>
 
 <% @goals.each do |goal| %>
-  <div><p><%=goal.name%>: <%=goal.time%>時間  <br><%= image_tag goal.image, :size =>'150x150' %></p></div>
+  <div><p><%=goal.name%>: <%=goal.time%>時間 挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'150x150' %></p></div>
 <% end %>
 
 <%= form_for @user do |f| %>
