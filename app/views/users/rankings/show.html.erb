@@ -3,5 +3,5 @@
 <%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち<br>
 
 <% @all_users.each.with_index(1) do |(user, total_time), index| %>
-  <%= index %>位 <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  <%= user.name %>さん <%= link_to "みてみる", user_path(user.id) %><br>
+  <%= index %>位 <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  <%= link_to "#{user.name}さん", user_path(user.id) %><br>
 <% end %>
