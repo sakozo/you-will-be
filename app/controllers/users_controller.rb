@@ -31,11 +31,11 @@ class UsersController < ApplicationController
 
     @y_time = YTime.new() #積み上げ時間入力フォーム用
 
-    #@data = [['2019-06-01', 100], ['2019-06-02', 200], ['2019-06-03', 150]]
-    @data = User.find(params[:id]).y_times.pluck(:created_at, :time)
+    @data = User.find(params[:id]).y_times.pluck(:created_at, :time) #積み上げ時間取得
 
-    #統計データここから
-    #日ごと
+
+    #統計データここから################################################################
+    #入力日ごとのスタック時間
     @daily_total_data = [[@user.created_at.strftime('%y/%m/%d'),0.0]]
       for i in 0..@data.length-1 do
         if i == 0
@@ -45,11 +45,13 @@ class UsersController < ApplicationController
         end
       end
 
+    #入力日ごとのスタック進捗率
     @daily_progress_data = []
       for i in 0..@daily_total_data.length-1 do
         @daily_progress_data << [@daily_total_data[i][0], ((@daily_total_data[i][1]) / (@goal.time) * 100).round(5) ]
       end
   
+    #入力日毎のスタック時間
     @daily_total_data_sca = [[@user.created_at.strftime('%d'),0.0]]
       for i in 0..@data.length-1 do
         if i == 0
@@ -59,8 +61,8 @@ class UsersController < ApplicationController
         end
       end
     
+    #入力日毎（日毎に合計値を算出）の時間
     @pie_data = [[@data[0][0].strftime('%y/%m/%d'),@data[0][1]]]
-    #binding.pry
       for i in 1..@data.length-1 do
         if @pie_data.last[0] == @data[i][0].strftime('%y/%m/%d')
           @pie_data[@pie_data.size-1] = [@pie_data.last[0] , @pie_data.last[1] + @data[i][1] ]
@@ -68,13 +70,13 @@ class UsersController < ApplicationController
           @pie_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
         end
       end
-   # binding.pry
 
+    #入力日毎の時間
     @column_data = []
       for i in 0..@data.length-1 do
         @column_data << [@data[i][0].strftime('%y/%m/%d'), @data[i][1]]
       end
-    #binding.pry
+    #統計データここまで################################################################
   end
 
   def new
