@@ -1,8 +1,9 @@
-<h1>You will be</h1>
+<%= stylesheet_link_tag "book/select_goal", :media => "all" %>
+<h1>You will be...?</h1>
+<div class="message">
 <p>あなたがなりたいものを選んでください</p>
-
-<br>
-一覧になければ自分で作ることもできます<%= link_to "目標を自分で設定する" , new_goal_path %>
+<p>一覧になければ自分で作ることもできます</p>
+</div>
 
 <%= form_for @user do |f| %>
   <% @goals.each do |goal| %>
@@ -11,4 +12,12 @@
     </label>
   <% end %>
 <%= f.submit "決定!!" %>
+<% end %>
+<br><br>
+
+<%= form_for @goal do |form| %>
+  <%= form.text_field :name, placeholder: "なりたいもの" %>
+  <%= form.text_field :time, placeholder: "かかる時間" %>
+  <%= form.text_field :image, placeholder: "イメージ画像" %>
+  <%= form.submit "SEND" %>
 <% end %>
