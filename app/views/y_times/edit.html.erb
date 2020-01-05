@@ -19,7 +19,8 @@
 1週間のあなたの時間
 <%= form_for @user do |form| %>
   <%= form.text_field :week_time, placeholder: "hidden", "v-model": "input_week_time" %>
-
+  <%= form.submit "結果を見る", class: "button" %>
+<% end %>
 </div>
 
 <div class="results">
@@ -31,8 +32,7 @@
 </div>
 
 <div class="button_area">
-  <%= form.submit "結果を見る", class: "button" %>
-<% end %>
+
 </div>
 <%= javascript_pack_tag "week_time" %>
 

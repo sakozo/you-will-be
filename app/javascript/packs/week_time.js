@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (this.time1 && this.time2 && this.time3 ) {
           var week_day_time =
           24 - (Number(this.time1) + Number(this.time2) + Number(this.time3));
-          return "平日は1日" + week_day_time + "時間";
+          return "平日: " + week_day_time + "時間";
         }else{
           return "";
         }
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (this.time1 && this.time2 && this.time3 ) {
           var week_end_time =
           24 - (Number(this.time1) + Number(this.time3));
-          return "休日は1日" + week_end_time + "時間";
+          return "休日: " + week_end_time + "時間";
         }else{
           return "";
         }
