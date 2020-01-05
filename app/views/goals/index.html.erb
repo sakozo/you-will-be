@@ -1,24 +1,23 @@
-<h1>You will be</h1>
+<%= stylesheet_link_tag "book/top_page", :media => "all" %>
+<h1>You will be...?</h1>
+<div class="user">
+    <p>By作者</p>
+</div>
+<div class="message">
 <p>あなたがなりたい姿はありますか?</p>
-<p>じつは思っているよりも早くなれるかもしれません、、、</p>
+<p>実は、思っているよりも早くなれるかもしれません…</p>
+</div>
 
 <br>
-<!--この部分は非表示にしてhoverすると表示されるようにする-->
-<p>本アプリケーションの説明</p>
-<p>①あなたがなりたいものを教えてください</p>
-<p>②あなたの普段の生活を教えてください、何週間でなりたいものになれるかを計算します</p>
-<p>③日々積み上げた時間を記録しましょう</p>
-<p>④他のひとの頑張りを見て励みにしましょう</p>
-<!--非表示部ここまで-->
+
 
 <% if user_signed_in? %>
-  <%= link_to "はじめる" , goal_path(current_user.id) %>
+  <div class="control">
+  <%= link_to "はじめる" , goal_path(current_user.id), class: "button" %>
+  </div>
 <% else %>
-  <%= link_to "ログイン・ユーザー登録" , new_user_session_path %>
+  <div class="control">
+  <%= link_to "ログイン・ユーザー登録" , new_user_session_path, class: "login_button" %>
+  </div>
 <% end %>
 
-<br><br>
-<!--別ページのリンクでも用意する-->
-作った人: sakozo Twitter:~~~<br>
-おすすめの本: 最短の時間で最大の成果を手に入れる  超効率勉強法  時間確保だけでなく効率を高めることも重要です <br>
-影響を受けた動画: マット・カッツ  30日チャレンジ

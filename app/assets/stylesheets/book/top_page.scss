@@ -1,0 +1,126 @@
+h1{
+  font-size: 90px;
+  margin-top: 5%;
+  text-align: center;
+  font-family: Monotype Corsiva;
+}
+.content{
+  background-color: white;
+  width: 600px;
+  margin: 100px auto;
+}
+.control{
+  display: flex;
+  justify-content: center;
+}
+// .button1{
+//   text-decoration: none;
+//   display:block;
+//   width: 30%;
+//   background-color: #08b910;
+//   color: #fff;
+//   padding: 8px;
+//   font-size: 180%;
+//   text-align: center;
+//   border-radius: 10px;
+//   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+// }
+
+//ボタン//////////////////////////////////////////
+
+//基本部分////
+.button {
+  text-decoration: none;
+  display:block;
+  width: 30%;
+  background-color: #08b910;
+  color: #fff;
+  padding: 8px;
+  font-size: 180%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+//基本部分ここまで////
+
+.button:hover {
+  letter-spacing: 7px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+//ボタンここまで//////////////////////////////////////////
+
+
+//ボタン//////////////////////////////////////////
+
+//基本部分////
+.login_button {
+  text-decoration: none;
+  display:block;
+  width: 30%;
+  background-color: #539bf8;
+  color: #fff;
+  padding: 8px;
+  font-size: 180%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+.login_button::before,
+.login_button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.login_button,
+.login_button::before,
+.login_button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+//基本部分ここまで////
+
+.login_button:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  background-color: rgb(117, 177, 255);
+}
+//ボタンここまで//////////////////////////////////////////
+
+
+.user{
+  /* 上 右 下 左 */
+  margin: 2% 2% 2% 70%;
+}
+.message{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  font-size: 130%;
+}
+// .description {
+//   text-align: left;
+//   margin-top: 30px;
+//   margin-bottom: 80px;
+//   margin-left: 30px;
+// }

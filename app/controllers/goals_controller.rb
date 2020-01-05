@@ -7,9 +7,10 @@ class GoalsController < ApplicationController
     end
   end
 
-  def show
+  def show 
     @user = User.find(current_user.id)
     @goals = Goal.all
+    @goal = Goal.new()
   end
 
   def new

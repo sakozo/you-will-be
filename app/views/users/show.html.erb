@@ -52,10 +52,10 @@
 
 <div class = "daily_statistics" >
 入力日ごとの時間
-<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", xtitle: "日付", ytitle: "時間" , suffix: "h" , colors: ["#b00", "#666"] %>
+<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", suffix: "h" , colors: ["#b00", "#666"] %>
 
 入力日ごとの時間（円グラフ）
-<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" , colors: ["#b00", "#666"] %>
+<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" %>
 <br>
 
 曜日ごとの積み上げ時間（0:日曜、1:月曜、、、）

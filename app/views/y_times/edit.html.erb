@@ -13,11 +13,15 @@
 
 1週間のあなたの時間
 <%= form_for @user do |form| %>
-  <%= form.text_field :week_time, placeholder: "placeholder", "v-model": "week_time" %>
+  <%= form.text_field :week_time, placeholder: "placeholder", "v-model": "input_week_time" %>
   <%= form.submit "SEND" %>
 <% end %>
-<h2>1週間のあなたの時間は<br>{{week_time}}時間です</h2>
-</section>
 
+<h2>あなたの時間は、、、<h2>
+{{week_day_time}}
+{{week_end_time}}
+{{week_time}}
+
+</section>
 
 <%= javascript_pack_tag "week_time" %>

@@ -58,3 +58,6 @@ gem 'webpacker', github: 'rails/webpacker'
 
 gem "chartkick"
 gem 'highcharts-rails'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
