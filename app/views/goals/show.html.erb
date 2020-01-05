@@ -5,19 +5,38 @@
 <p>一覧になければ自分で作ることもできます</p>
 </div>
 
+<div class="contents">
+<ul class="horizontal-list">
 <%= form_for @user do |f| %>
   <% @goals.each do |goal| %>
-    <label>
-    <div><p><%= f.radio_button :goal_id, goal.id %><%=goal.name%>: <%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'150x150' %></p></div>
-    </label>
+
+      <li class="choices">
+        <label>
+        <div class="text"><p><%= f.radio_button :goal_id, goal.id %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %></p></div>
+        </label>
+      </li>
+
   <% end %>
-<%= f.submit "決定!!" %>
+</ul>
+</div>
+
+<br>
+<div class="submit_button">
+<%= f.submit "決定!!", class: "button" %>
+</div>
 <% end %>
+
 <br><br>
 
+<div class="create_goal">
+<p>自分で作る</p>
 <%= form_for @goal do |form| %>
-  <%= form.text_field :name, placeholder: "なりたいもの" %>
-  <%= form.text_field :time, placeholder: "かかる時間" %>
-  <%= form.text_field :image, placeholder: "イメージ画像" %>
-  <%= form.submit "SEND" %>
+  <%= form.text_field :name, placeholder: "なりたいもの" ,class: "input_form" %>
+  <%= form.text_field :time, placeholder: "かかる時間" ,class: "input_form" %>
+  <%= form.text_field :image, placeholder: "イメージ画像" ,class: "input_form_image" %>
+
+  <span class="create_goal_button">
+  <%= form.submit "作成!", class: "button2" %>
+  </span>
 <% end %>
+</div>
