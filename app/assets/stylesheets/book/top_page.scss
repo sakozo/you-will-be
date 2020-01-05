@@ -1,6 +1,6 @@
 h1{
   font-size: 90px;
-  margin: 0;
+  margin-top: 5%;
   text-align: center;
   font-family: Monotype Corsiva;
 }
@@ -10,39 +10,49 @@ h1{
   margin: 100px auto;
 }
 .control{
-  display: inline;
-  margin: 50px;
+  display: flex;
+  justify-content: center;
 }
 .button1{
-  width: 80%;
+  text-decoration: none;
+  display:block;
+  width: 30%;
   background-color: #08b910;
   color: #fff;
   padding: 8px;
-  font-size: 1em;
+  font-size: 180%;
+  text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 .button2{
-  width: 80%;
+  text-decoration: none;
+  display:block;
+  width: 30%;
   background-color: #74deec;
   color: #fff;
+  color: #fff;
   padding: 8px;
-  font-size: 1em;
+  font-size: 180%;
+  text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 .user{
   /* 上　右　下　左 */
-  margin: 20px 10px 20px 400px;
+  //margin: 20px 10px 20px 1000px;
+  margin: 2% 2% 2% 70%;
+
 }
 .message{
   text-align: center;
   margin-top: 30px;
   margin-bottom: 80px;
+  font-size: 130%;
 }
-.description {
-  text-align: left;
-  margin-top: 30px;
-  margin-bottom: 80px;
-  margin-left: 30px;
-}
+// .description {
+//   text-align: left;
+//   margin-top: 30px;
+//   margin-bottom: 80px;
+//   margin-left: 30px;
+// }
