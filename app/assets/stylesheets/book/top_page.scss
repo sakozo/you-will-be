@@ -25,24 +25,92 @@ h1{
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
-.button2{
+
+//ボタン//////////////////////////////////////////
+
+//基本部分////
+.button {
   text-decoration: none;
   display:block;
   width: 30%;
-  background-color: #74deec;
-  color: #fff;
+  background-color: #08b910;
   color: #fff;
   padding: 8px;
   font-size: 180%;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
 }
-.user{
-  /* 上　右　下　左 */
-  //margin: 20px 10px 20px 1000px;
-  margin: 2% 2% 2% 70%;
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+//基本部分ここまで////
 
+.button:hover {
+  letter-spacing: 7px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+//ボタンここまで//////////////////////////////////////////
+
+
+//ボタン//////////////////////////////////////////
+
+//基本部分////
+.login_button {
+  text-decoration: none;
+  display:block;
+  width: 30%;
+  background-color: #539bf8;
+  color: #fff;
+  padding: 8px;
+  font-size: 180%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+.login_button::before,
+.login_button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.login_button,
+.login_button::before,
+.login_button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+//基本部分ここまで////
+
+.login_button:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  background-color: rgb(117, 177, 255);
+}
+//ボタンここまで//////////////////////////////////////////
+
+
+.user{
+  /* 上 右 下 左 */
+  margin: 2% 2% 2% 70%;
 }
 .message{
   text-align: center;
