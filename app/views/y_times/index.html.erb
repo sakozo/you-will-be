@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "book/cal_result", :media => "all" %>
 <h1>You will be...?</h1>
 <div class="message">
-<p><%= @user.name %>さん、あなたが1週間で<%=@user.week_time%>時間ずつ積み上げることができれば</p>
-<p><%=@required_week.round%>週間（<%=@required_month.round(1)%>ヶ月）後の、<%= @achievement_date %>に<%=@goal.name%>になっているかもしれません</p>
+<p class="message__date"><%= @user.name %>さん、あなたが1週間で<%=@user.week_time%>時間ずつ積み上げることができれば</p>
+<p class="message__week"><%=@required_week.round%>週間（<%=@required_month.round(1)%>ヶ月）後の、<%= @achievement_date %>に<%=@goal.name%>になっているかもしれません</p>
+<p class="message__start">なりたかったあなたになるために今からはじめてみませんか？</p>
 </div>
-
-<div class="button">
-<%= link_to "はじめる" , user_path(current_user.id) %>
+<div class="control">
+<%= link_to "はじめる" , user_path(current_user.id), class: "button" %>
 </div>

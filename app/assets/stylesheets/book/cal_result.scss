@@ -8,34 +8,60 @@ h1{
 .message{
   text-align: center;
   margin-top: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 2%;
   font-size: 120%;
+  &__date {
+    font-size: 130%;
+    margin-top: 3%;
+  }
+  &__week {
+    font-size: 150%;
+    margin-top: 2%;
+  }
+  &__start {
+    font-size: 120%;
+    margin-top: 8%;
+  }
 }
 
-.contents {
-  width: 50%;
-  margin-left: 25%;
-}
-
-#week_time_form {
+.control{
   display: flex;
-  justify-content: space-between;
-
+  justify-content: center;
 }
 
-.form{
-  width: 100%;
-}
-
-.input_form {
-  border-bottom: 1px solid #d1d1d1;
-  font-size: 100%;
-  width: 20%;
+.button {
+  text-decoration: none;
+  display:block;
+  width: 30%;
+  background-color: #f07341;
+  color: #fff;
   padding: 8px;
-  margin-bottom: 20px;
+  font-size: 180%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
 }
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+//基本部分ここまで////
 
-.input_times{
-  font-size: 120%;
-  // font-weight: bold;
+.button:hover {
+  letter-spacing: 7px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
+//ボタンここまで//////////////////////////////////////////
