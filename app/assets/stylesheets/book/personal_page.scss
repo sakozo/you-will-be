@@ -1,0 +1,29 @@
+h1{
+  font-size: 55px;
+  margin-top: 0;
+  text-align: center;
+  font-family: Monotype Corsiva;
+}
+
+.titile {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.message{
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 120%;
+}
+
+.y_times{
+  background-color: rgba(126, 117, 117, 0.212);
+  width: 30%;
+  
+  &__scroll {
+    height: 200px;
+    width: 300px;
+    overflow: scroll;
+  }
+}

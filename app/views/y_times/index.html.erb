@@ -1,9 +1,8 @@
 <%= stylesheet_link_tag "book/cal_result", :media => "all" %>
-<h1>You will be</h1>
+<h1>You will be...?</h1>
 <div class="message">
-<p><%= @user.name %>さん、</p>
-<p>あなたが1週間で<%=@user.week_time%>時間ずつ積み上げることができれば</p>
-<p><%=@required_week%>週間（<%=@required_month%>ヶ月）後の、<%= @achievement_date %>に<%=@goal.name%>になっているかもしれません</p>
+<p><%= @user.name %>さん、あなたが1週間で<%=@user.week_time%>時間ずつ積み上げることができれば</p>
+<p><%=@required_week.round%>週間（<%=@required_month.round(1)%>ヶ月）後の、<%= @achievement_date %>に<%=@goal.name%>になっているかもしれません</p>
 </div>
 
 <div class="button">

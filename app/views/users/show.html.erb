@@ -1,6 +1,12 @@
-<a href=http://localhost:3000><h1>You will be</h1></a>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
-<%= link_to "ランキングページへ", users_rankings_path %><br>
+<%= stylesheet_link_tag "book/personal_page", :media => "all" %>
+
+<div class="title">
+<h1>You will be...?</h1>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: "button"%><br><br>
+<%= link_to "ランキングページへ", users_rankings_path , class: "button"%><br>
+</div>
+
+<div class="message">
 <%= @user.name%>さん、
 
 <!--挨拶、時間ごとに変化-->
@@ -30,6 +36,8 @@
   <p>なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう</p>
 <% end %>
 <!--メッセージここまで-->
+</div>
+
 
 <br>
 積み上げた時間を記録しましょう
@@ -40,7 +48,11 @@
 <% end %>
 
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
-これまでに積み上げてきた時間 <%= @total_time %>時間<br>
+
+<div class="y_times">
+<p>これまでに積み上げてきた時間 <%= @total_time %>時間</p>
+<div class="y_times__scroll">
+
 <% @user.y_times.each do |y_time| %>
   <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
   <%if y_time.note.present? %>
@@ -48,7 +60,11 @@
   <% end %>
   <br>
 <% end %>
+</div>
+
+</div>
 <br>
+
 
 <div class = "daily_statistics" >
 入力日ごとの時間
