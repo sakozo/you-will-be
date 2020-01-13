@@ -51,6 +51,7 @@ h1{
     width: 500px;
   }
   .right_content {
+    margin-left: 10%;
     width: 500px;
     .statistics {
       background-color: rgb(28, 223, 125);
@@ -60,7 +61,7 @@ h1{
   }
 }
 
-
+//タブここから//////////////////////////////////////////////////
 .tabs{
   width:100%;
   margin:10px auto;
@@ -135,3 +136,4 @@ h1{
 -webkit-transition: all .3s ease-in;
 -moz-transition: all .3s ease-in;
 }
+//タブ ここまで///////////////////////////////////////////////////////////
