@@ -62,7 +62,7 @@ h1{
 
 
 .tabs{
-  width:50%;
+  width:100%;
   margin:10px auto;
   position:relative;
 }
@@ -73,7 +73,7 @@ h1{
   cursor:pointer;
   border-bottom:2px solid #ddd;
   display:block;
-  width:25%;
+  width:20%;
   float:left;
   text-align:center;
   height:40px;
@@ -86,9 +86,10 @@ h1{
   display:inline-block;
   font:400 13px 'open sans',sans-serif;
   color:#333;
+  width: 100%;
 }
 #lamp{
-  width:25%;
+  width:20%;
   height:2px;
   background:#333;
   display:block;
@@ -100,21 +101,28 @@ h1{
 -moz-transition: all .3s ease-in;
 }
 #lamp.content2{
-  left:25%;
+  left:20%;
   transition: all .3s ease-in;
 -o-transition: all .3s ease-in;
 -webkit-transition: all .3s ease-in;
 -moz-transition: all .3s ease-in;
 }
 #lamp.content3{
-  left:50%;
+  left:40%;
   transition: all .3s ease-in;
 -o-transition: all .3s ease-in;
 -webkit-transition: all .3s ease-in;
 -moz-transition: all .3s ease-in;
 }
 #lamp.content4{
-  left:75%;
+  left:60%;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content5{
+  left:80%;
   transition: all .3s ease-in;
 -o-transition: all .3s ease-in;
 -webkit-transition: all .3s ease-in;

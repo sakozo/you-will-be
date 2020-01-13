@@ -74,7 +74,9 @@
 進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
 <br>
 
-
+<%
+=begin%>
+ 
 <!-- 統計データ表示 -->
 <div class = "statistics" >
 進捗率
@@ -97,8 +99,10 @@
 <br>
 </div>
 <!-- ここまで 統計データ表示 -->
-</div> <!--right_content-->
-</div> <!-- contents -->
+<%
+=end%>
+
+
 
 
 <div class='tabs'>
@@ -107,18 +111,28 @@
     <span class='content2'>Button 2</span>
     <span class='content3'>Button 3</span>
     <span class='content4'>Button 4</span>
+    <span class='content5'>Button 5</span>
 
     <div id='lamp' class='content1'></div>
   </div>
   <div class='tab-content'>
     
-    <div class='content1'>This is the content of 1 container.This will be open when button 1 is clicked.This is the content of 1 container.This will be open when button 1 is clicked.This is the content of 1 container.This will be open when button 1 is clicked.</div>
+    <div class='content1'>進捗率
+<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %></div>
     
-    <div class='content2'>This is the content of 2 container.This will be open when button 2 is clicked.This is the content of 2 container.This will be open when button 2 is clicked.This is the content of 2 container.This will be open when button 2 is clicked.</div>
+    <div class='content2'>入力日ごとの時間
+<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", suffix: "h" , colors: ["#b00", "#666"] %></div>
     
-    <div class='content3'>This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.</div>
+    <div class='content3'>入力日ごとの時間（円グラフ）
+<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" %></div>
 
-    <div class='content4'>This is the content of 4 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.</div>
+    <div class='content4'>曜日ごとの積み上げ時間（0:日曜、1:月曜、、、）
+<%= scatter_chart @sca_data,  width: "250px", height: "250px" , suffix: "h" , colors: ["#b00", "#666"] %></div>
+
+    <div class='content5'>積み上げた時間
+<%= area_chart @daily_total_data,width: "250px", height: "250px", suffix: "h", curve: false  %></div>
   </div>
 </div>
 <div class='credit'>
+</div> <!--right_content-->
+</div> <!-- contents --> 
