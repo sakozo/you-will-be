@@ -1,13 +1,28 @@
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 h1{
   font-size: 55px;
   margin-top: 0;
+  margin-left: 32%;
   text-align: center;
   font-family: Monotype Corsiva;
+  display: inline;
 }
 
 .titile {
-  display: flex;
+  display: flex;              /* フレックスボックスにする */
+  // align-items:stretch;        /* 縦の位置指定 */
   justify-content: flex-end;
+}
+
+.logout_link {
+  display: inline;
+}
+
+.ranking_link {
+  display: inline;
 }
 
 .message{

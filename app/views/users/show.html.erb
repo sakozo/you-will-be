@@ -1,9 +1,16 @@
 <%= stylesheet_link_tag "book/personal_page", :media => "all" %>
 
 <div class="title">
+
 <h1>You will be...?</h1>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: "button"%><br><br>
-<%= link_to "ランキングページへ", users_rankings_path , class: "button"%><br>
+
+  <div class="logout_link">
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: "button"%>
+  </div>
+
+  <div class="ranking_link">
+  <%= link_to "ランキングページへ", users_rankings_path , class: "button"%><br>
+  </div>
 </div>
 
 <div class="message">
