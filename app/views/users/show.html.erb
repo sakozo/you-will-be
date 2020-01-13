@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "book/personal_page", :media => "all" %>
+<%= javascript_include_tag 'book/personal_page.js' %>
 
 <div class="title">
 
@@ -14,23 +15,20 @@
 </div>
 
 <div class="message">
-<%= @user.name%>さん、
-
+<%= @user.name%>さん
 <!--挨拶、時間ごとに変化-->
 <% if @nowTime >= 4 && @nowTime < 10 %>
-  <p>おはようございます</p>
-<% elsif @nowTime >= 10 && @nowTime < 6 %>
-  <p>こんにちは</p>
-<% elsif @nowTime >= 6 && @nowTime < 4 %>
-  <p>こんばんわ</p>
+  おはようございます
+<% elsif @nowTime >= 10 && @nowTime < 18 %>
+  こんにちは
+<% elsif @nowTime >= 18 && @nowTime < 23 || @nowTime >= 0 %>
+  こんばんわ
+<% else %>
+  調子はどうですか？
 <% end %>
 <!--挨拶ここまで-->
 
-<!--最速で目標達成できる日付も書いておこう-->
 <p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
-
-進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
-
 
 <!--メッセージ、進捗率ごとに変化-->
 <% if @progress_rate >= 0 && @progress_rate < 10 %>
@@ -45,35 +43,44 @@
 <!--メッセージここまで-->
 </div>
 
-
-<br>
+<div class="contents">
+<div class="left_content">
 積み上げた時間を記録しましょう
 <%= form_for @y_time do |form| %>
   <%= form.text_field :time, placeholder: "3.5" %>時間<br>
   <%= form.text_field :note, placeholder: "メモ" %>
   <%= form.submit "SEND" %>
 <% end %>
-
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
 
 <div class="y_times">
 <p>これまでに積み上げてきた時間 <%= @total_time %>時間</p>
-<div class="y_times__scroll">
-
-<% @user.y_times.each do |y_time| %>
-  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
-  <%if y_time.note.present? %>
-    <%= ": #{y_time.note}" %>
+  <div class="y_times__scroll">
+  <% @user.y_times.each do |y_time| %>
+    <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
+    <%if y_time.note.present? %>
+      <%= ": #{y_time.note}" %>
+    <% end %>
+    <br>
   <% end %>
-  <br>
-<% end %>
+  </div>
 </div>
+<br>
+</div> <!-- left_content ここまで -->
 
-</div>
+
+<div class ="right_content">
+<!--最速で目標達成できる日付も書いておこう-->
+進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
 <br>
 
 
-<div class = "daily_statistics" >
+<!-- 統計データ表示 -->
+<div class = "statistics" >
+進捗率
+<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %>
+<br>
+
 入力日ごとの時間
 <%= column_chart @column_data, discrete: true, width: "250px", height: "250px", suffix: "h" , colors: ["#b00", "#666"] %>
 
@@ -85,13 +92,33 @@
 <%= scatter_chart @sca_data,  width: "250px", height: "250px" , suffix: "h" , colors: ["#b00", "#666"] %>
 <br>
 
-進捗率
-<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %>
-<br>
-
 積み上げた時間
 <%= area_chart @daily_total_data,width: "250px", height: "250px", suffix: "h", curve: false  %>
 <br>
-
-
 </div>
+<!-- ここまで 統計データ表示 -->
+</div> <!--right_content-->
+</div> <!-- contents -->
+
+
+<div class='tabs'>
+  <div class='tab-buttons'>
+    <span class='content1'>Button 1</span>
+    <span class='content2'>Button 2</span>
+    <span class='content3'>Button 3</span>
+    <span class='content4'>Button 4</span>
+
+    <div id='lamp' class='content1'></div>
+  </div>
+  <div class='tab-content'>
+    
+    <div class='content1'>This is the content of 1 container.This will be open when button 1 is clicked.This is the content of 1 container.This will be open when button 1 is clicked.This is the content of 1 container.This will be open when button 1 is clicked.</div>
+    
+    <div class='content2'>This is the content of 2 container.This will be open when button 2 is clicked.This is the content of 2 container.This will be open when button 2 is clicked.This is the content of 2 container.This will be open when button 2 is clicked.</div>
+    
+    <div class='content3'>This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.</div>
+
+    <div class='content4'>This is the content of 4 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.This is the content of 3 container.This will be open when button 3 is clicked.</div>
+  </div>
+</div>
+<div class='credit'>

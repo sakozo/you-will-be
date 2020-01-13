@@ -1,6 +1,6 @@
 body {
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 h1{
   font-size: 55px;
@@ -34,11 +34,96 @@ h1{
 
 .y_times{
   background-color: rgba(126, 117, 117, 0.212);
-  width: 30%;
+  width: 100%;
   
   &__scroll {
     height: 200px;
     width: 300px;
     overflow: scroll;
+    width: 100%;
   }
+}
+
+.contents {
+  margin-top: 5%;
+  display: flex;
+  .left_content {
+    width: 500px;
+  }
+  .right_content {
+    width: 500px;
+    .statistics {
+      background-color: rgb(28, 223, 125);
+      overflow: scroll;
+      height: 30%;
+    }
+  }
+}
+
+
+.tabs{
+  width:50%;
+  margin:10px auto;
+  position:relative;
+}
+.tab-buttons span{
+  font:400 14px 'open sans',sans-serif;
+  color:#333;
+  background:#eee;
+  cursor:pointer;
+  border-bottom:2px solid #ddd;
+  display:block;
+  width:25%;
+  float:left;
+  text-align:center;
+  height:40px;
+  line-height:40px;
+}
+.tab-content{
+  border-bottom:3px solid #ddd;
+  padding:15px;
+  background:#eee;
+  display:inline-block;
+  font:400 13px 'open sans',sans-serif;
+  color:#333;
+}
+#lamp{
+  width:25%;
+  height:2px;
+  background:#333;
+  display:block;
+  position:absolute;
+  top:40px;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content2{
+  left:25%;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content3{
+  left:50%;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content4{
+  left:75%;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
+}
+#lamp.content1{
+  left:0;
+  transition: all .3s ease-in;
+-o-transition: all .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-moz-transition: all .3s ease-in;
 }
