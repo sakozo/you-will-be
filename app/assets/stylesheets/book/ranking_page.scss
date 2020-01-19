@@ -10,3 +10,24 @@ h1{
   font-family: Monotype Corsiva;
   display: inline;
 }
+.message{
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-size: 120%;
+}
+.ranking_area{
+  background-color: rgb(157, 224, 117);
+  overflow: scroll;
+  height: 500px;
+  width: 70%;
+  margin: auto;
+}
+.ranking_panel{
+  border: solid;
+  border-width: 1px;
+  text-align: left;
+  background-color: rgb(170, 241, 170);
+  font-size: 18px;;
+  padding: 2% 2% 2% 25%;
+}

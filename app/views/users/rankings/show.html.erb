@@ -1,10 +1,18 @@
 <a href=http://localhost:3000><h1>You will be</h1></a>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
-<%= link_to  "#{@goal.name}ランキングへ", users_rankings_path %>
-<%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち<br>
+<%= link_to  "#{@goal.name}ランキングへ", users_rankings_path %><br>
 
+<div class="message">
+<%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち
+</div>
+<br>
+  
+<div class="ranking_area">
 <% @all_users.each.with_index(1) do |(user, total_time), index| %>
-  <%= index %>位 <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  <%= link_to "#{user.name}さん", user_path(user.id) %><br>
+  <div class="ranking_panel">
+  <%= index %>位  <%= link_to "#{user.name}さん", user_path(user.id) %> <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  
+  </div>
 <% end %>
+</div>
 
 <%= stylesheet_link_tag "book/ranking_page", :media => "all" %>
