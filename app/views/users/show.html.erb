@@ -1,23 +1,33 @@
-<a href=http://localhost:3000><h1>You will be</h1></a>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
-<%= link_to "ランキングページへ", users_rankings_path %><br>
-<%= @user.name%>さん、
 
+
+<div class="title">
+
+<h1>You will be...?</h1>
+
+  <div class="logout_link">
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: "button"%>
+  </div>
+
+  <div class="ranking_link">
+  <%= link_to "ランキングページへ", users_rankings_path , class: "button"%><br>
+  </div>
+</div>
+
+<div class="message">
+<%= @user.name%>さん
 <!--挨拶、時間ごとに変化-->
 <% if @nowTime >= 4 && @nowTime < 10 %>
-  <p>おはようございます</p>
-<% elsif @nowTime >= 10 && @nowTime < 6 %>
-  <p>こんにちは</p>
-<% elsif @nowTime >= 6 && @nowTime < 4 %>
-  <p>こんばんわ</p>
+  おはようございます
+<% elsif @nowTime >= 10 && @nowTime < 18 %>
+  こんにちは
+<% elsif @nowTime >= 18 && @nowTime < 23 || @nowTime >= 0 %>
+  こんばんわ
+<% else %>
+  調子はどうですか？
 <% end %>
 <!--挨拶ここまで-->
 
-<!--最速で目標達成できる日付も書いておこう-->
 <p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
-
-進捗率は<h2><%= @progress_rate.round(5) %>%</h2>
-
 
 <!--メッセージ、進捗率ごとに変化-->
 <% if @progress_rate >= 0 && @progress_rate < 10 %>
@@ -30,45 +40,69 @@
   <p>なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう</p>
 <% end %>
 <!--メッセージここまで-->
+</div>
 
+<div class="contents">
+<div class="left_content">
+<!--最速で目標達成できる日付も書いておこう-->
+<h2>進捗率:  <%= @progress_rate.round(5) %>%</h2>
 <br>
 積み上げた時間を記録しましょう
 <%= form_for @y_time do |form| %>
   <%= form.text_field :time, placeholder: "3.5" %>時間<br>
-  <%= form.text_field :note, placeholder: "メモ" %>
+  <%= form.text_field :note, placeholder: "メモ" %><br>
   <%= form.submit "SEND" %>
 <% end %>
-
 <br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
-これまでに積み上げてきた時間 <%= @total_time %>時間<br>
-<% @user.y_times.each do |y_time| %>
-  <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
-  <%if y_time.note.present? %>
-    <%= ": #{y_time.note}" %>
+
+<div class="y_times">
+<p>これまでに積み上げてきた時間 <%= @total_time %>時間</p>
+  <div class="y_times__scroll">
+  <% @user.y_times.each do |y_time| %>
+    <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
+    <%if y_time.note.present? %>
+      <%= ": #{y_time.note}" %>
+    <% end %>
+    <br>
   <% end %>
-  <br>
-<% end %>
-<br>
-
-<div class = "daily_statistics" >
-入力日ごとの時間
-<%= column_chart @column_data, discrete: true, width: "250px", height: "250px", suffix: "h" , colors: ["#b00", "#666"] %>
-
-入力日ごとの時間（円グラフ）
-<%= pie_chart @pie_data,width: "250px", height: "250px" , legend: false  , suffix: "h" %>
-<br>
-
-曜日ごとの積み上げ時間（0:日曜、1:月曜、、、）
-<%= scatter_chart @sca_data,  width: "250px", height: "250px" , suffix: "h" , colors: ["#b00", "#666"] %>
-<br>
-
-進捗率
-<%= line_chart @daily_progress_data, width: "250px", height: "250px", suffix: "%" %>
-<br>
-
-積み上げた時間
-<%= area_chart @daily_total_data,width: "250px", height: "250px", suffix: "h", curve: false  %>
-<br>
-
-
+  </div>
 </div>
+<br>
+</div> <!-- left_content ここまで -->
+
+
+<div class ="right_content">
+
+<div class='tabs'>
+  <div class='tab-buttons'>
+    <span class='content1'>進捗率</span>
+    <span class='content2'>日ごと(棒)</span>
+    <span class='content3'>日ごと(円)</span>
+    <span class='content4'>曜日ごと</span>
+    <span class='content5'>トータル</span>
+
+    <div id='lamp' class='content1'></div>
+  </div>
+  <div class='tab-content'>
+    
+    <div class='content1'><h3>進捗率</h3>
+<%= line_chart @daily_progress_data, width: "450px", height: "350px", suffix: "%" %></div>
+    
+    <div class='content2'><h3>入力日ごとの時間</h3>
+<%= column_chart @column_data, discrete: true, width: "450px", height: "350px", suffix: "h" , colors: ["#b00", "#666"] %></div>
+    
+    <div class='content3'><h3>入力日ごとの時間（円グラフ）</h3>
+<%= pie_chart @pie_data,width: "450px", height: "350px" , legend: false  , suffix: "h" %></div>
+
+    <div class='content4'><h3>曜日ごとの積み上げ時間（0:Sun,1:Mon,2:Tue,3:Wed...）</h3>
+<%= scatter_chart @sca_data,  width: "450px", height: "350px" , suffix: "h" , colors: ["#b00", "#666"] %></div>
+
+    <div class='content5'><h3>これまでに積み上げた時間</h3>
+<%= area_chart @daily_total_data,width: "450px", height: "350px", suffix: "h", curve: false  %></div>
+  </div>
+</div>
+<div class='credit'>
+</div> <!--right_content-->
+</div> <!-- contents --> 
+<%= stylesheet_link_tag "book/personal_page", :media => "all" %>
+<%= javascript_include_tag 'book/personal_page.js' %>
