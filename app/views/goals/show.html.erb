@@ -1,4 +1,6 @@
 <%= stylesheet_link_tag "book/select_goal", :media => "all" %>
+<%= form_for @user do |f| %>
+
 <h1>You will be...?</h1>
 <div class="message">
 <p>あなたがなりたいものを選んでください</p>
@@ -7,25 +9,28 @@
 
 <div class="contents">
 <ul class="horizontal-list">
-<%= form_for @user do |f| %>
   <% @goals.each do |goal| %>
-
       <li class="choices">
         <label>
-        <div class="text"><p><%= f.radio_button :goal_id, goal.id %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %></p></div>
+        <div class="text">
+        <p><%= f.radio_button :goal_id, goal.id %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %>
+        </p>
+        </div>
         </label>
       </li>
-
   <% end %>
+    
 </ul>
 </div>
+
+
 
 <br>
 <div class="submit_button">
 <%= f.submit "決定!!", class: "button" %>
 </div>
 <% end %>
-
+</div>
 <br><br>
 
 <div class="create_goal">
