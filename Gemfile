@@ -61,3 +61,7 @@ gem 'highcharts-rails'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
