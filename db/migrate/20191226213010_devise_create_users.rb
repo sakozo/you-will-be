@@ -10,7 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :encrypted_password, null: false, default: ""
       t.string :image
       t.integer :public_flag,       null:false, default: 0
-      t.references :goal,           null: false,foreign_key: true
+      t.references :goal,           foreign_key: true
 
       ## Recoverable
       t.string   :reset_password_token
