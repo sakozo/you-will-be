@@ -58,7 +58,7 @@
 <div class="y_times">
 <p>これまでに積み上げてきた時間 <%= @total_time %>時間</p>
   <div class="y_times__scroll">
-  <% @user.y_times.each do |y_time| %>
+  <% @user.y_times.order(id: "DESC").each do |y_time| %>
     <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
     <%if y_time.note.present? %>
       <%= ": #{y_time.note}" %>
