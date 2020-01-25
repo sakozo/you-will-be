@@ -1,6 +1,7 @@
-<a href=http://localhost:3000><h1>You will be</h1></a>
+<h1>You will be</h1>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
 <%= link_to  "#{@goal.name}ランキングへ", users_rankings_path %><br>
+<%= link_to  "マイページへ", user_path(current_user.id) %><br>
 
 <div class="message">
 <%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち

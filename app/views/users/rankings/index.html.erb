@@ -1,6 +1,7 @@
 <h1>You will be</h1>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
 <%= link_to "全体ランキングへ", users_ranking_path(current_user.id)%><br>
+<%= link_to  "マイページへ", user_path(current_user.id) %>
 <div class="message">
 <%= @user.name%>さんと同じく<%= @goal.name %>を目指しているひとたち
 </div>
