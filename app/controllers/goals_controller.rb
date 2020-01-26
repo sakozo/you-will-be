@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
     @user = User.find(current_user.id)
     @goal = Goal.new()
 
-    #挑戦者が多い順に並べ替え##########################################
+    #挑戦者が多い順に並べ替え########################################################
     goals = Goal.all
     goals_list = []
     goals.each do |goal|
