@@ -9,8 +9,16 @@ class GoalsController < ApplicationController
 
   def show 
     @user = User.find(current_user.id)
-    @goals = Goal.all
     @goal = Goal.new()
+
+    #挑戦者が多い順に並べ替え########################################################
+    goals = Goal.all
+    goals_list = []
+    goals.each do |goal|
+      goals_list << goal
+    end
+    @goals_ordered_list = goals_list.sort_by {|goal| goal.users.count }.reverse
+    #############################################################################
   end
 
   def new

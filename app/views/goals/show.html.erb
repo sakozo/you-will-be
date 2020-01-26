@@ -1,3 +1,6 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
 <%= stylesheet_link_tag "book/select_goal", :media => "all" %>
 <%= form_for @user do |f| %>
 
@@ -9,7 +12,7 @@
 
 <div class="contents">
 <ul class="horizontal-list">
-  <% @goals.each do |goal| %>
+  <% @goals_ordered_list.each do |goal| %>
       <li class="choices">
         <label>
         <div class="text">
@@ -33,15 +36,32 @@
 </div>
 <br><br>
 
-<div class="create_goal">
-<p>自分で作る</p>
-<%= form_for @goal do |form| %>
-  <%= form.text_field :name, placeholder: "なりたいもの" ,class: "input_form" %>
-  <%= form.text_field :time, placeholder: "かかる時間" ,class: "input_form" %>
-  <%= form.text_field :image, placeholder: "イメージ画像" ,class: "input_form_image" %>
 
-  <span class="create_goal_button">
-  <%= form.submit "作成!", class: "button2" %>
-  </span>
-<% end %>
+
+<div class="container text-center">
+  <button type="button" class="button2  mt-5" data-toggle="modal" data-target="#post">自分で設定</button>
+
+  <div class="modal fade" id="post" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <%= form_for @goal do |form| %>
+      <div class="modal-content">
+        <div class="modal-body">
+
+            <div class="create_goal">
+              <%= form.text_field :name, placeholder: "なりたいもの" ,class: "input_form" %>
+              <%= form.text_field :time, placeholder: "かかる時間" ,class: "input_form" %>
+              <%= form.text_field :image, placeholder: "イメージ画像" ,class: "input_form_image" %>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <%= form.submit "作成!", class: "btn btn-primary"%>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
 </div>
