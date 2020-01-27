@@ -1,15 +1,13 @@
-h1{
-  font-size: 55px;
-  margin-top: 0;
-  text-align: center;
-  font-family: Monotype Corsiva;
-}
-
 .message{
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 5px;
-  font-size: 120%;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  font-size: 140%;
+  display: flex;
+}
+.btn {
+  margin-left: 5%;
 }
 
 .contents {
