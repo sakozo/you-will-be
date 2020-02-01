@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
   def index
     if user_signed_in?
-    if current_user.goal_id != nil
+    if current_user.goal_id != nil && current_user.email !="testtest@test"
       redirect_to user_path(current_user.id)
     end
     end
