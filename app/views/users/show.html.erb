@@ -1,36 +1,25 @@
- <%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さん、#{@greeting}"}%>
+ <%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さん#{@greeting}　#{@progress_message}"}%>
 
 <div class="message">
 <p>本日は<%= @goal.name %>になるためにとりくみ始めてから<strong><%= @date %>日目</strong>ですね</p>
 
-<!--メッセージ、進捗率ごとに変化-->
-<% if @progress_rate >= 0 && @progress_rate < 10 %>
-  <p>スタートダッシュ!!</p>
-<% elsif @progress_rate >= 10 && @progress_rate < 50 %>
-  <p>少しづつ目標が見えてきましたか？</p>
-<% elsif @progress_rate >= 50 && @progress_rate < 100 %>
-  <p>そろそろなりたい姿に近づいてきたのではないでしょうか?</p>
-<% elsif @progress_rate > 100 %>
-  <p>なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう</p>
-<% end %>
-<!--メッセージここまで-->
 </div>
 
 <div class="contents">
 <div class="left_content">
 <!--最速で目標達成できる日付も書いておこう-->
-<h2>進捗率:  <%= @progress_rate.round(5) %>%</h2>
-<br>
-積み上げた時間を記録しましょう
+<h2 class="progress_rate" >進捗率:  <%= @progress_rate.round(5) %>%</h2>
+
+<div class="input_area">
 <%= form_for @y_time do |form| %>
-  <%= form.text_field :time, placeholder: "3.5" %>時間<br>
-  <%= form.text_field :note, placeholder: "メモ" %><br>
-  <%= form.submit "SEND" %>
+  <div class="input_time"><%= form.text_field :time, placeholder: "3.5", type: "number", min:"0" %>時間</div><br>
+  <div><%= form.text_field :note, placeholder: "メモ(任意)",class: "input_memo" %></div><br>
+  <div class="submit_button"><%= form.submit "記録する" %></div>
 <% end %>
-<br>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
+</div>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
 
 <div class="y_times">
-<p>これまでに積み上げてきた時間 <%= @total_time %>時間</p>
+<p class="total_time">Total: <%= @total_time %>時間</p>
   <div class="y_times__scroll">
   <% @user.y_times.order(id: "DESC").each do |y_time| %>
     <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
@@ -60,10 +49,10 @@
   <div class='tab-content'>
     
     <div class='content1'><h3>進捗率</h3>
-<%= line_chart @daily_progress_data, width: "450px", height: "350px", suffix: "%" %></div>
+<%= line_chart @daily_progress_data, width: "450px", height: "350px", suffix: "%" , colors: ["#DB077F", "#DB077F"]%></div>
     
     <div class='content2'><h3>入力日ごとの時間</h3>
-<%= column_chart @column_data, discrete: true, width: "450px", height: "350px", suffix: "h" , colors: ["#b00", "#666"] %></div>
+<%= column_chart @column_data, discrete: true, width: "450px", height: "350px", suffix: "h" , colors: ["#0065B2", "#0065B2"] %></div>
     
     <div class='content3'><h3>入力日ごとの時間（円グラフ）</h3>
 <%= pie_chart @pie_data,width: "450px", height: "350px" , legend: false  , suffix: "h" %></div>

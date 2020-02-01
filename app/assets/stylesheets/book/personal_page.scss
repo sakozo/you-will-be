@@ -11,6 +11,31 @@
 //   display: inline;
 // }
 
+h2 {
+  position: relative;
+  padding-left: 25px;
+}
+
+h2:before {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: solid 15px transparent;
+  border-bottom: solid 15px rgb(119, 195, 223);
+}
+h2:after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 10px;
+  width: 100%;
+  border-bottom: solid 3px rgb(119, 195, 223);
+}
+
 .titile {
   display: flex;              /* フレックスボックスにする */
   // align-items:stretch;        /* 縦の位置指定 */
@@ -33,27 +58,66 @@
   font-size: 140%;
 }
 
-.y_times{
-  background-color: rgba(126, 117, 117, 0.212);
+.input_area{
+  margin-top: 5%;
+
+}
+
+// input {
+//   border-bottom: 1px solid #d1d1d1;
+//   font-size: 100%;
+//   width: 60%;
+//   padding: 8px;
+//   margin-bottom: 20px;
+// }
+
+.input_time{
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 100%;
+  width: 50%;
+  padding: 8px;
+  margin-bottom: 0px;
+}
+.input_memo{
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 100%;
   width: 100%;
+  padding: 8px;
+  margin-bottom: 0px;
+}
+
+.y_times{
+  background-color: rgba(230, 234, 235, 0.212);
+  width: 100%;
+  border: solid 2px #0065B2;
+  border-radius: 10px;
   
   &__scroll {
-    height: 200px;
+    height: 250px;
     width: 300px;
     overflow: scroll;
     width: 100%;
+    margin-left: 4%;
   }
 }
 
+.total_time{
+  font-size: 130%;
+  margin-left: 2%;
+}
+
 .contents {
-  margin-top: 5%;
+  margin-top: 2%;
   display: flex;
   .left_content {
     width: 500px;
+    margin-left: 10%;
   }
   .right_content {
-    margin-left: 10%;
+    margin-left: 5%;
     width: 500px;
+    border: solid 2px #0065B2;
+    border-radius: 4px;
     .statistics {
       background-color: rgb(28, 223, 125);
       overflow: scroll;
@@ -62,16 +126,39 @@
   }
 }
 
+.progress_rate {
+  font-size: 250%;
+  font-weight: bold;
+}
+
+.submit_button{
+  text-decoration: none;
+  display:block;
+  margin-bottom: 4%;
+  width: 100%;
+  background-color: #13d6f8;
+  color: #fff;
+  padding: 0px;
+  font-size: 130%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
 //タブここから//////////////////////////////////////////////////
 .tabs{
   width:100%;
   margin:10px auto;
   position:relative;
+  // border: solid 2px #0065B2;
+  // border-radius: 4px;
+  height: 91%;
 }
 .tab-buttons span{
   font:400 14px 'open sans',sans-serif;
   color:#333;
-  background:#eee;
+  background:#FDFDFB;
   cursor:pointer;
   border-bottom:2px solid #ddd;
   display:block;
@@ -84,11 +171,14 @@
 .tab-content{
   border-bottom:3px solid #ddd;
   padding:15px;
-  background:#eee;
+  padding-top: 40px;
+  padding-bottom: 0px;
+  background: #FDFDFB;
   display:inline-block;
   font:400 13px 'open sans',sans-serif;
   color:#333;
   width: 100%;
+  height: 100%;
 }
 #lamp{
   width:20%;

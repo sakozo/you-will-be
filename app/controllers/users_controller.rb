@@ -40,6 +40,19 @@ class UsersController < ApplicationController
     @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5) #進捗率、小数点5桁まで表示すれば数値が変化しないということはないという考え
     #binding.pry
 
+    #メッセージ、進捗率ごとに変化
+    @progress_message = ""
+    if @progress_rate >= 0 && @progress_rate < 10
+      @progress_message = "スタートダッシュ!!"
+    elsif @progress_rate >= 10 && @progress_rate < 50
+      @progress_message ="少しづつ目標が見えてきましたか？"
+    elsif @progress_rate >= 50 && @progress_rate < 100
+      @progress_message ="そろそろなりたい姿に近づいてきたのではないでしょうか?"
+    elsif @progress_rate > 100
+      @progress_message ="なりたい自分になれたでしょうか？  まだまださらなる高みを目指しましょう"
+    end
+    #メッセージここまで
+
 
     @y_time = YTime.new() #積み上げ時間入力フォーム用
 
