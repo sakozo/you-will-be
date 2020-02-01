@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag "book/input_y_time", :media => "all" %>
-<h1>You will be...?</h1>
+ <%= render partial: "template/page_top",  locals: {guide_message: "あなたの普段の生活を教えてください"}%>
 <div class="message">
-<p>あなたの普段の生活を教えてください</p>
 <p>もし目標に向けてフルコミットできた場合、何週間でなりたい姿になれるかを計算します。</p>
 <p>週休２日を想定しています。他の時間は全てなりたい姿のための積み上げ時間として換算します。</p>
 </div>
@@ -10,29 +9,46 @@
 
 <section id = "week_time_form">
 
-<div class="input_times">
-1日の、、、<br>
-睡眠時間<br><input class="input_form" v-model="time1" placeholder="7.5"><br>
-仕事・学校時間<br><input class="input_form" v-model="time2" placeholder="8.5"><br>
-食事・仕度・家事時間<br><input class="input_form" v-model="time3" placeholder="2"><br><br>
+<div class="input_area">
+  <p class="input_area__title" >1日の、、、</p>
+  <div class="input_times">
+    <div class="sleep_time">
+    <p>睡眠時間</p><input class="input_form" v-model="time1" placeholder="7.5">
+    </div><br>
+    <div class="work_time">
+    <p>仕事・学校時間</p><input class="input_form" v-model="time2" placeholder="8.5">
+    </div><br>
+    <div class="home_time">
+    <p>食事・仕度・家事時間</p><input class="input_form" v-model="time3" placeholder="2">
+    </div>
+  </div>
+</div>
+
+
+<div class="results_area">
+  <p class="results_area__title" >あなたの時間は、、、</p>
+  <div class="both_parts">
+    <div class="left_part">
+      <div class="week_day_time"><p>{{week_day_time}}</p></div>
+      <div class="week_end_time"><p>{{week_end_time}}</p></div>
+    </div>
+    <div class="right_part">
+      <div class="week_time"><p>{{week_time}}</p></div>
+    </div>
+  </div>
+</div>
 
 <%= form_for @user do |form| %>
   <%= form.text_field :week_time, placeholder: "hidden", "v-model": "input_week_time", type: "hidden" %>
   <%= form.submit "結果を見る", class: "button" %>
 <% end %>
-</div>
-
-<div class="results">
-<h2>あなたの時間は、、、<h2>
-<div class="">{{week_day_time}}</div>
-<div class="">{{week_end_time}}</div>
-<div class="">{{week_time}}</div>
 </section>
-</div>
+
 
 <div class="button_area">
 
 </div>
 <%= javascript_pack_tag "week_time" %>
+
 
 
