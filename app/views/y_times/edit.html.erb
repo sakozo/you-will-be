@@ -13,13 +13,13 @@
   <p class="input_area__title" >1日の、、、</p>
   <div class="input_times">
     <div class="sleep_time">
-    <p>睡眠時間</p><input class="input_form" v-model="time1" placeholder="7.5">
+    <p>睡眠時間</p><input type="number" min="0" class="input_form" v-model="time1" placeholder="7.5" >
     </div><br>
     <div class="work_time">
-    <p>仕事・学校時間</p><input class="input_form" v-model="time2" placeholder="8.5">
+    <p>仕事・学校時間</p><input type="number" min="0" class="input_form"  v-model="time2" placeholder="8.5" >
     </div><br>
     <div class="home_time">
-    <p>食事・仕度・家事時間</p><input class="input_form" v-model="time3" placeholder="2">
+    <p>食事・仕度・家事時間</p><input type="number" min="0"  class="input_form" v-model="time3" placeholder="2">
     </div>
   </div>
 </div>
