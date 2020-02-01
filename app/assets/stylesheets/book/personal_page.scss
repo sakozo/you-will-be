@@ -1,15 +1,15 @@
-body {
-  margin-left: 10%;
-  margin-right: 5%;
-}
-h1{
-  font-size: 55px;
-  margin-top: 0;
-  margin-left: 32%;
-  text-align: center;
-  font-family: Monotype Corsiva;
-  display: inline;
-}
+// body {
+//   margin-left: 10%;
+//   margin-right: 5%;
+// }
+// h1{
+//   font-size: 55px;
+//   margin-top: 0;
+//   margin-left: 32%;
+//   text-align: center;
+//   font-family: Monotype Corsiva;
+//   display: inline;
+// }
 
 .titile {
   display: flex;              /* フレックスボックスにする */
@@ -26,10 +26,11 @@ h1{
 }
 
 .message{
-  text-align: center;
-  margin-top: 0px;
+  text-align: left;
+  margin-top: 1%;
   margin-bottom: 5px;
-  font-size: 120%;
+  margin-left: 10%;
+  font-size: 140%;
 }
 
 .y_times{

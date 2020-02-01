@@ -1,33 +1,7 @@
-
-
-<div class="title">
-
-<h1>You will be...?</h1>
-
-  <div class="logout_link">
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete , class: "button"%>
-  </div>
-
-  <div class="ranking_link">
-  <%= link_to "ランキングページへ", users_rankings_path , class: "button"%><br>
-  </div>
-</div>
+ <%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さん、#{@greeting}"}%>
 
 <div class="message">
-<%= @user.name%>さん
-<!--挨拶、時間ごとに変化-->
-<% if @nowTime >= 4 && @nowTime < 10 %>
-  おはようございます
-<% elsif @nowTime >= 10 && @nowTime < 18 %>
-  こんにちは
-<% elsif @nowTime >= 18 && @nowTime < 23 || @nowTime >= 0 %>
-  こんばんわ
-<% else %>
-  調子はどうですか？
-<% end %>
-<!--挨拶ここまで-->
-
-<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<%= @date %>日目ですね</p>
+<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<strong><%= @date %>日目</strong>ですね</p>
 
 <!--メッセージ、進捗率ごとに変化-->
 <% if @progress_rate >= 0 && @progress_rate < 10 %>

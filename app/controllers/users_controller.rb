@@ -19,6 +19,19 @@ class UsersController < ApplicationController
   end
 
   def show
+    #挨拶、時間ごとに変化
+    @nowTime = DateTime.now.hour  #挨拶表示のため、現在時刻を取得
+    @greeting = "調子はどうですか？"
+    if @nowTime >= 4 && @nowTime < 10
+      @greeting = "おはようございます!!"
+    elsif @nowTime >= 10 && @nowTime < 18
+      @greeting = "こんにちは!!"
+    elsif @nowTime >= 18 && @nowTime < 23 || @nowTime >= 0
+      @greeting = "こんばんわ!!"
+    end
+    #挨拶ここまで
+
+
     @user = User.find(params[:id])
     @goal = Goal.find(current_user.goal_id)
     @date = (Date.current - @user.created_at.to_date + 1).numerator #何日め表記なので現在日-登録日+1
@@ -27,7 +40,6 @@ class UsersController < ApplicationController
     @progress_rate = 100*(@user.y_times.sum(:time) / @goal.time).round(5) #進捗率、小数点5桁まで表示すれば数値が変化しないということはないという考え
     #binding.pry
 
-    @nowTime = DateTime.now.hour  #挨拶表示のため、現在時刻を取得
 
     @y_time = YTime.new() #積み上げ時間入力フォーム用
 

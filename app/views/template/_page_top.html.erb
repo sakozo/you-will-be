@@ -6,9 +6,18 @@
   <div class="title_area__title">
     <h1>You will be...?</h1>
   </div>
+
+  <% if request.path.slice(0..6) == "/users/" %>
+  <div class="title_area__ranking_button">
+  <%= link_to "ランキングページへ", users_rankings_path , class: "btn btn-success" %>
+  </div>
+  <% end %>
+
   <div class="title_area__logout_button">
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %>
   </div>
+
+
 </div>
 <div class="menubar">
   <p class="guide_message"><%= guide_message %></p>
