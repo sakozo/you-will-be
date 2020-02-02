@@ -1,0 +1,67 @@
+.field{
+  margin-left: 20%;
+  font-size: 130%;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+input{
+  border-bottom: 1px solid #d1d1d1;
+  font-size: 100%;
+  width: 60%;
+  padding: 8px;
+  margin-bottom: 0px;
+}
+
+
+
+//ボタン//////////////////////////////////////////
+//基本部分////
+.button {
+  text-decoration: none;
+  display:block;
+  width: 45%;
+  margin-left: 30%;
+  margin-bottom: 2%;
+  background-color: #0065B2;
+  color: #fff;
+  padding: 8px;
+  font-size: 180%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  outline: none;
+  //margin-left: 100%;
+}
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+  text-decoration: none;
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  text-decoration: none;
+}
+//基本部分ここまで////
+
+.button:hover {
+  // letter-spacing: 7px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  color: #fff;
+}
+//ボタンここまで//////////////////////////////////////////
+
+.link{
+  text-decoration: none;
+  background-color: #C19969;
+}

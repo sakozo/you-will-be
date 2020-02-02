@@ -1,5 +1,5 @@
-<h2>ユーザー登録</h2>
-
+<%= stylesheet_link_tag "book/login_page", :media => "all" %>
+<%= render partial: "template/login_page_top",  locals: {guide_message: "ユーザー登録（新規の方）"}%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -27,8 +27,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "登録" %>
+    <%= f.submit "OK!" ,class: "button" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+<%= link_to "ログイン（アカウントをお持ちの方はこちら）", new_session_path(resource_name),class: "button link" %>
