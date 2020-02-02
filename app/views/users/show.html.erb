@@ -19,7 +19,7 @@
 <%= form_for @y_time do |form| %>
   <div class="input_time"><%= form.text_field :time, placeholder: "3.5", type: "number", min:"0" %>時間</div><br>
   <div><%= form.text_field :note, placeholder: "メモ(任意)",class: "input_memo" %></div><br>
-  <div class="submit_button"><%= form.submit "記録する" %></div>
+  <div ><%= form.submit "記録する", class: "submit_button"%></div>
 <% end %>
 </div>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
 <% else %>
@@ -27,7 +27,7 @@
 <%= form_for @y_time do |form| %>
   <div class="input_time"><%= form.text_field :time, placeholder: "3.5", type: "number", min:"0" , readonly: true %>時間</div><br>
   <div><%= form.text_field :note, placeholder: "メモ(任意)",class: "input_memo" , readonly: true %></div><br>
-  <div class="submit_button disabled_button"><%= form.submit "記録する" , readonly: true %></div>
+  <div ><%= form.submit "記録する" ,class: "submit_button disabled_button",type: "disable", readonly: true %></div>
 <% end %>
 </div>
 <% end %>
