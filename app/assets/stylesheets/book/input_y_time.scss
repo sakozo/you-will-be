@@ -1,15 +1,17 @@
-h1{
-  font-size: 55px;
-  margin-top: 0;
-  text-align: center;
-  font-family: Monotype Corsiva;
-}
+// h1{
+//   font-size: 55px;
+//   margin-top: 0;
+//   text-align: center;
+//   font-family: Monotype Corsiva;
+// }
 
 .message{
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 50px;
-  font-size: 120%;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  font-size: 140%;
+  //display: flex;
 }
 
 .contents {
@@ -18,9 +20,46 @@ h1{
 }
 
 #week_time_form {
-  display: flex;
-  justify-content: space-between;
+  //display: flex;
+  //justify-content: space-between;
 
+}
+
+// .input_area {
+//   padding: 0.5em 1em;
+//   margin: 2em 0;
+//   font-weight: bold;
+//   color: #225aa3;/*文字色*/
+//   background: #FFF;
+//   border: solid 3px #57a0ff;/*線*/
+//   border-radius: 10px;/*角の丸み*/
+// }
+
+// .input_area__title{
+//   font-size: 140%;
+// }
+
+.input_area{
+  position: relative;
+  width: 100%;
+  margin-top: 3em;
+  padding: 1em 2em;
+  border: 3px solid #57a0ff;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.input_area .input_area__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  padding-right: 1em;
+  padding-left: 0.1em;
+  margin: 0;
+  background-color: white;
+  transform: translateY(-50%) translateX(1em);
+  font-weight: bold;
 }
 
 .form{
@@ -30,14 +69,66 @@ h1{
 .input_form {
   border-bottom: 1px solid #d1d1d1;
   font-size: 100%;
-  width: 20%;
+  width: 60%;
   padding: 8px;
   margin-bottom: 20px;
 }
 
 .input_times{
-  font-size: 120%;
+  margin-top: 2%;
+  margin-left: 3%;
+  margin-right: 1%;
+  font-size: 130%;
   // font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.results_area{
+  position: relative;
+  width: 100%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  padding: 1em 2em;
+  border: 3px solid #ff8c57;
+  border-radius: 10px;
+}
+
+.results_area .results_area__title{
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  padding-right: 1em;
+  padding-left: 0.1em;
+  margin: 0;
+  background-color: white;
+  transform: translateY(-50%) translateX(1em);
+}
+.results_area p{
+  font-size: 140%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-weight: bold;
+  display: inline;
+}
+
+.both_parts{
+  display: flex;
+  //justify-content: space-between;
+}
+.left_part{
+  width: 30%;
+}
+.right_part{
+  width: 70%;
+  margin-top: 4%;
+}
+.week_time{
+  line-height: 100%;
+  //margin-right: 5%;
+  margin-left: 30%;
+  font-size: 130%;
 }
 
 //ボタン//////////////////////////////////////////
@@ -67,7 +158,7 @@ h1{
   text-decoration: none;
   display:block;
   width: 100%;
-  background-color: #13d6f8;
+  background-color: #0065B2;
   color: #fff;
   padding: 8px;
   font-size: 180%;
@@ -75,7 +166,7 @@ h1{
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   outline: none;
-  margin-left: 100%;
+  //margin-left: 100%;
 }
 .button::before,
 .button::after {

@@ -1,0 +1,34 @@
+h1{
+  font-size: 350%;
+  margin-top: 0;
+  text-align: left;
+  margin-left: 10%;
+}
+.title_area{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  &__title{
+    width: 80%;
+  }
+  &__ranking_button{
+    margin-top: 1.3%;
+    margin-right: 3%;
+  }
+  &__logout_button{
+    margin-top: 1.3%;
+    margin-right: 3%;
+  }
+}
+
+.menubar{
+  background-color: #0065B2;
+  height: 50px;
+}
+.guide_message{
+  font-size: 150%;
+  color: white;
+  //font-weight: bold;
+  margin-left: 10%;
+  line-height: 200%;
+}

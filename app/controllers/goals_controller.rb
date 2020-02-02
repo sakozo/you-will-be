@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
   def index
     if user_signed_in?
-    if current_user.goal_id != nil
+    if current_user.goal_id != nil && current_user.email !="testtest@test"
       redirect_to user_path(current_user.id)
     end
     end
@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new()
 
     #挑戦者が多い順に並べ替え########################################################
-    goals = Goal.all
+    goals = Goal.all.includes(:users)
     goals_list = []
     goals.each do |goal|
       goals_list << goal

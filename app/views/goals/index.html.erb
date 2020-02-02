@@ -1,8 +1,14 @@
+<%= image_tag  "aozora0729IMGL8670_TP_V.jpg", class: "bg_image"%>
 <%= stylesheet_link_tag "book/top_page", :media => "all" %>
+<section id="top_page">
 <h1>You will be...?</h1>
-<div class="user">
+<%
+=begin%>
+ <div class="user">
     <p>By作者</p>
-</div>
+</div> 
+<%
+=end%>
 <div class="message">
 <p>あなたがなりたい姿はありますか?</p>
 <p>実は、思っているよりも早くなれるかもしれません…</p>
@@ -15,9 +21,18 @@
   <div class="control">
   <%= link_to "はじめる" , goal_path(current_user.id), class: "button" %>
   </div>
-<% else %>
+<% else %>  
   <div class="control">
   <%= link_to "ログイン・ユーザー登録" , new_user_session_path, class: "login_button" %>
   </div>
+  <div class="test_login_label">
+    <%= form_for(User.new, url:"/users/sign_in") do |f|  %>
+    <%= f.hidden_field :name, value: "test" %>
+    <%= f.hidden_field :email, value: "testtest@test" %>
+    <%= f.hidden_field :password, value: "111111" %>
+    <%= f.submit "テストユーザーでかんたんログイン", class: "test_login_button"%> 
+  <% end %>
+  </div>
+</div>
 <% end %>
-
+</section >
