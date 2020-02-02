@@ -1,15 +1,14 @@
 body {
-  margin-left: 10%;
-  margin-right: 5%;
+  height: 100%;
 }
-h1{
-  font-size: 55px;
-  margin-top: 0;
-  margin-left: 32%;
-  text-align: center;
-  font-family: Monotype Corsiva;
-  display: inline;
-}
+// h1{
+//   font-size: 55px;
+//   margin-top: 0;
+//   margin-left: 32%;
+//   text-align: center;
+//   font-family: Monotype Corsiva;
+//   display: inline;
+// }
 .message{
   text-align: center;
   margin-top: 0px;
@@ -17,17 +16,26 @@ h1{
   font-size: 120%;
 }
 .ranking_area{
-  background-color: rgb(157, 224, 117);
+  background-color:rgb(243, 243, 242);
   overflow: scroll;
-  height: 500px;
+  height: 600px;
   width: 70%;
   margin: auto;
 }
 .ranking_panel{
-  border: solid;
-  border-width: 1px;
+  border: solid #0065B2;
+  border-width: 3px;
+  border-radius: 10px;
   text-align: left;
-  background-color: rgb(170, 241, 170);
-  font-size: 18px;;
-  padding: 2% 2% 2% 25%;
+  background-color: rgb#67A5DA;
+  font-size: 130%;
+  padding: 2% 2% 2% 5%;
+  margin-bottom: 1%;
+  display:block;
+}
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: none;
 }

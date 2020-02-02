@@ -1,18 +1,18 @@
-<h1>You will be</h1>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br><br>
-<%= link_to  "#{@goal.name}ランキングへ", users_rankings_path %><br>
-<%= link_to  "マイページへ", user_path(current_user.id) %><br>
+ <%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さんと同じくこのアプリを使って取り組んでくださっているひとたち"}%>
+
 
 <div class="message">
-<%= @user.name%>さんと同じくこのアプリを使って取り組んでくださっているひとたち
+
 </div>
 <br>
   
 <div class="ranking_area">
 <% @all_users.each.with_index(1) do |(user, total_time), index| %>
-  <div class="ranking_panel">
-  <%= index %>位  <%= link_to "#{user.name}さん", user_path(user.id) %> <%= Goal.find(user.goal_id).name %> <%= total_time %>時間  
-  </div>
+  <%= link_to user_path(user.id) ,class: "link" do %>
+    <div class="ranking_panel">
+    <%= index %>位  <%= user.name%>さん <%= total_time %>時間  <br>
+    </div>
+  <% end %>
 <% end %>
 </div>
 

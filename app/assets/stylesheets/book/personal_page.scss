@@ -60,7 +60,6 @@ h2:after {
 
 .input_area{
   margin-top: 5%;
-
 }
 
 // input {
@@ -100,7 +99,9 @@ h2:after {
     margin-left: 4%;
   }
 }
-
+h3 {
+  text-align: center;
+}
 .total_time{
   font-size: 130%;
   margin-left: 2%;
@@ -183,7 +184,7 @@ h2:after {
 #lamp{
   width:20%;
   height:2px;
-  background:#333;
+  background:#0065B2;
   display:block;
   position:absolute;
   top:40px;
