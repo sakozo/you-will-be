@@ -1,4 +1,8 @@
- <%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さん#{@greeting}　#{@progress_message}"}%>
+<% if @user.id == current_user.id %>
+<%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さん#{@greeting}　#{@progress_message}"}%>
+<% else %>
+<%= render partial: "template/page_top",  locals: {guide_message: "#{@user.name}さんのマイページ"}%>
+<% end %>
 
 <div class="message">
 <p>本日は<%= @goal.name %>になるためにとりくみ始めてから<strong><%= @date %>日目</strong>ですね</p>
@@ -10,6 +14,7 @@
 <!--最速で目標達成できる日付も書いておこう-->
 <h2 class="progress_rate" >進捗率:  <%= @progress_rate.round(5) %>%</h2>
 
+<% if @user.id == current_user.id %>
 <div class="input_area">
 <%= form_for @y_time do |form| %>
   <div class="input_time"><%= form.text_field :time, placeholder: "3.5", type: "number", min:"0" %>時間</div><br>
@@ -17,6 +22,15 @@
   <div class="submit_button"><%= form.submit "記録する" %></div>
 <% end %>
 </div>   <!--バリデーションをあとで設定する--><!--間違えた時の削除機能も追加する-->
+<% else %>
+<div class="input_area">
+<%= form_for @y_time do |form| %>
+  <div class="input_time"><%= form.text_field :time, placeholder: "3.5", type: "number", min:"0" , readonly: true %>時間</div><br>
+  <div><%= form.text_field :note, placeholder: "メモ(任意)",class: "input_memo" , readonly: true %></div><br>
+  <div class="submit_button disabled_button"><%= form.submit "記録する" , readonly: true %></div>
+<% end %>
+</div>
+<% end %>
 
 <div class="y_times">
 <p class="total_time">Total: <%= @total_time %>時間</p>
