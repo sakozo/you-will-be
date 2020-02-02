@@ -24,7 +24,7 @@
   width: 90%;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.815);
+  background-color: rgba(104, 165, 218, 0.815);
 }
 
 .horizontal-list {
@@ -35,7 +35,7 @@
   width: 90%;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.815);
+  background-color: rgba(185, 195, 201, 0.815);
 
 }
 
@@ -44,8 +44,8 @@
   display: inline-block;
   width: 250px;
   height: 300px;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin-right: 2%;
+  margin-left: 1%;
 
   background-color: rgba(218, 218, 218, 0.815);
 }
@@ -54,6 +54,15 @@
 
 .modal-content{
   height: 200px;
+  background-color: #E5EAEB;
+  width: 100%;
+}
+
+.input_form{
+  background-color: #fff;
+}
+.input_form_image{
+  background-color: #fff;
 }
 
 //ボタン//////////////////////////////////////////
@@ -72,7 +81,7 @@
   text-decoration: none;
   display:block;
   width: 30%;
-  background-color: #13d6f8;
+  background-color: #0065B2;
   color: #fff;
   padding: 8px;
   font-size: 180%;

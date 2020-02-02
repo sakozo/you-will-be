@@ -46,7 +46,8 @@
             <div class="create_goal">
               <%= form.text_field :name, placeholder: "なりたいもの" ,class: "input_form" %>
               <%= form.text_field :time, placeholder: "かかる時間" ,class: "input_form" %>
-              <%= form.text_field :image, placeholder: "イメージ画像" ,class: "input_form_image" %>
+
+              <%= form.file_field :image, class: "image", id: "file"%>
             </div>
 
         </div>
