@@ -12,12 +12,23 @@
 <ul class="horizontal-list">
   <% @goals_ordered_list.each do |goal| %>
       <li class="choices">
-        <label>
-        <div class="text">
-        <p><%= f.radio_button :goal_id, goal.id %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %>
-        </p>
-        </div>
-        </label>
+
+        <% if goal.id == 1 %>
+          <label>
+          <div class="text">
+          <p><%= f.radio_button :goal_id, goal.id, checked: true %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %>
+          </p>
+          </div>
+          </label>
+
+        <% else %>
+          <label>
+          <div class="text">
+          <p><%= f.radio_button :goal_id, goal.id %><%=goal.name%> <br><%=goal.time%>時間 <br>挑戦中:<%=goal.users.count%>人 <br><%= image_tag goal.image, :size =>'200x200' %>
+          </p>
+          </div>
+          </label>
+        <% end %>
       </li>
   <% end %>
     

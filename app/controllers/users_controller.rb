@@ -8,14 +8,20 @@ class UsersController < ApplicationController
   end
 
   def update
+    #binding.pry
       user = User.find(current_user.id)
-      user.update(user_params)
-    if user_params[:week_time] == nil
+
+    # if user_params[:goal_id] == nil 
+    #   redirect_to goal_path(current_user.id)
+    # end
+
+    user.update(user_params)
+    #binding.pry
+    if user_params[:week_time] == "" || user_params[:week_time] == nil || user_params[:goal_id] != nil
       redirect_to edit_y_time_path
     else
       redirect_to y_times_path
     end
-
   end
 
   def show
