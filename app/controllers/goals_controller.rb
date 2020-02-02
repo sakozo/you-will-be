@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new()
 
     #挑戦者が多い順に並べ替え########################################################
-    goals = Goal.all
+    goals = Goal.all.includes(:users)
     goals_list = []
     goals.each do |goal|
       goals_list << goal

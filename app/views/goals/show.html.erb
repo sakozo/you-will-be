@@ -1,4 +1,4 @@
-
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
  <%= render partial: "template/page_top",  locals: {guide_message: "あなたがなりたい姿を教えてください"}%>
 <%= stylesheet_link_tag "book/select_goal", :media => "all" %>
 <%= form_for @user do |f| %>
@@ -46,8 +46,10 @@
             <div class="create_goal">
               <%= form.text_field :name, placeholder: "なりたいもの" ,class: "input_form" %>
               <%= form.text_field :time, placeholder: "かかる時間" ,class: "input_form" %>
-
-              <%= form.file_field :image, class: "image", id: "file"%>
+              <label>
+              <i class="fa fa-file-image"></i>
+              <%= form.file_field :image, class: "image", id: "file", style: "display:none;"%>
+              </label>
             </div>
 
         </div>
