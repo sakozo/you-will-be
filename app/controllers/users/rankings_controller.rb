@@ -7,6 +7,7 @@ class Users::RankingsController < ApplicationController
     # @same_goal_users = Goal.find(current_user.goal_id).y_times.joins(:user).group(:user_id).sum(:time)
 
     @same_goal_users = Goal.find(current_user.goal_id).y_times.joins(:user).group(:user).sum(:time).sort {|(k1, v1), (k2, v2)| v2 <=> v1 }
+    #binding.pry
   end
 
   def show
