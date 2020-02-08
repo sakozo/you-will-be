@@ -1,0 +1,37 @@
+<%= render partial: "template/page_top",  locals: {guide_message: "作者自己紹介（仮設）"}%>
+
+
+
+<section id="self_introduce">
+<div class= "twitter">
+<a href= "https://twitter.com/sako205022118">
+<h3>sakozo</h3><%= image_tag  "https://pbs.twimg.com/profile_images/1203685921205276674/WnHv8LhL_400x400.jpg", class: "photo" %><br>
+Twitterアカウントに飛びます</a><br>
+</div>
+<br>
+
+<p>昨年大学院修士課程を修了、社会人１年目</p>
+<p>カビ菌を使って細胞分裂の研究をしていました。</p>
+<p>論文を２本出しました、もし興味がありましたら↓</p>
+<a href= "https://www.ncbi.nlm.nih.gov/pubmed/30463883">https://www.ncbi.nlm.nih.gov/pubmed/30463883</a><br>
+<a href= "https://www.ncbi.nlm.nih.gov/pubmed/29167352">https://www.ncbi.nlm.nih.gov/pubmed/29167352</a>
+
+
+<div class="input_area">
+コメント、感想などありましたら
+<%= form_for @author do |form| %>
+  <div><%= form.text_area :comments , class: "comment_form", size: "86x2" %></div>
+  <%= form.submit "送信", class: "submit_button" %>
+<% end %>
+</div>
+
+<div class="comment_area">
+<% @comments.each do |comment| %>
+<div><%= comment.comments %></div>
+<% end %>
+</div>
+
+
+</section>
+
+<%= stylesheet_link_tag "book/personal_page", :media => "all" %>

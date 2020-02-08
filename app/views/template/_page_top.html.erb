@@ -18,7 +18,7 @@
     <div class="title_area__ranking_button">
     <%= link_to "全体ランキングへ", users_ranking_path(current_user.id) , class: "btn btn-danger" %>
     </div>
-  <% elsif request.path.slice(0..15) == "/users/rankings/"%>
+  <% elsif request.path.slice(0..15) == "/users/rankings/" || request.path.slice(0..12) == "/authors/new" %>
     <div class="title_area__ranking_button">
     <%= link_to  "マイページへ", user_path(current_user.id) ,class: "btn btn-primary" %>
     </div>

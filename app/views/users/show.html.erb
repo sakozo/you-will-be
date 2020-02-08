@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="message">
-<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<strong><%= @date %>日目</strong>ですね</p>
+<p>本日は<%= @goal.name %>になるためにとりくみ始めてから<strong><%= @date %>日目</strong>ですね　　<% if current_user.id == @user.id %><%= link_to "作成者の自己紹介ページへ", new_author_path,class: "self_introduce" %><% end %></p> 
 
 </div>
 

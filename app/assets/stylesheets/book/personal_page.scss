@@ -96,7 +96,7 @@ h2:after {
     width: 300px;
     overflow: scroll;
     width: 100%;
-    margin-left: 4%;
+    margin-left: 1%;
   }
 }
 h3 {
@@ -234,3 +234,58 @@ h3 {
 -moz-transition: all .3s ease-in;
 }
 //タブ ここまで///////////////////////////////////////////////////////////
+input {
+  font-size: 150%;
+  width: 25%;
+}
+
+
+
+//自己紹介ページ/////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+.self_introduce {
+	//display: block;
+  //position: relative;
+  font-size: 75%;
+	width: 100px;
+	padding: 0.1em;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(153, 154, 155);
+	background: #fff;
+	border:1px solid #0065B2;
+}
+.self_introduce:hover {
+	 background: #0065B2;
+         color: #fff;
+	 cursor: pointer;
+	 text-decoration: none;
+}
+
+.comment_form{
+  font-size: 100%;
+  border: 2px solid #13d6f8;
+}
+
+#self_introduce{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comment_area{
+  overflow: scroll;
+  border: 2px solid #0065B2;
+  height: 120px;
+}
+
+.photo {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width:  130px;       /* ※縦横を同値に */
+  height: 130px;       /* ※縦横を同値に */
+}
+
+.twitter{
+  text-align: center;
+}
