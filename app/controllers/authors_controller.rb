@@ -6,6 +6,7 @@ class AuthorsController < ApplicationController
 
   def create
     Author.create(comments_params)
+    redirect_to new_author_path
   end
 
   def comments_params
