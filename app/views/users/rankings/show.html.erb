@@ -10,7 +10,7 @@
 <% @all_users.each.with_index(1) do |(user, total_time), index| %>
   <%= link_to user_path(user.id) ,class: "link" do %>
     <div class="ranking_panel all_users">
-    <%= index %>位  <%= user.name%>さん <%= total_time %>時間<br>
+    <%= index %>位  <%= user.name%>さん <%= total_time.round(1) %>時間<br>
     </div>
   <% end %>
 <% end %>

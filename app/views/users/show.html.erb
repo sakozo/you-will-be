@@ -36,7 +36,7 @@
 <p class="total_time">Total: <%= @total_time %>時間</p>
   <div class="y_times__scroll">
   <% @user.y_times.order(id: "DESC").each do |y_time| %>
-    <%= y_time.time %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
+    <%= y_time.time.round(1) %>時間  <%= y_time.created_at.strftime('%y/%m/%d') %> 
     <%if y_time.note.present? %>
       <%= ": #{y_time.note}" %>
     <% end %>
