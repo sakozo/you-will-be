@@ -2,6 +2,8 @@ class AuthorsController < ApplicationController
   def new
     @author = Author.new()
     @comments = Author.all
+
+    #binding.pry
   end
 
   def create
@@ -10,6 +12,6 @@ class AuthorsController < ApplicationController
   end
 
   def comments_params
-    params.require(:author).permit(:comments)
+    params.require(:author).permit(:comments, :name)
   end
 end
