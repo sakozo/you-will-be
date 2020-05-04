@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20200208023946) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                           null: false
     t.float    "week_time",              limit: 24
-    t.string   "email",                             default: ""
+    t.string   "email",                             default: "", null: false
     t.string   "encrypted_password",                default: "", null: false
     t.string   "image"
     t.integer  "public_flag",                       default: 0,  null: false
